@@ -710,11 +710,12 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@dword-design/base-core@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-core/-/base-core-2.0.0.tgz#2a35d5796d18ea22560d7c318ff4c26d769d3c93"
-  integrity sha512-S/HwhrsM1ROkc462mHmZ2oZozMpxVMJtxiV4pbtkAN5INEv0NRSWSlef+UyiJOtQPNvLzXR2VwHUInGqX+ef4w==
+"@dword-design/base@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-1.0.0.tgz#3af342fbda6b60f78c515c4de08609f1783e352f"
+  integrity sha512-bH8D+69kKM0D6kzuLvlvND5aBtV2Jgpgg1EmYyHxGyGVEQJTmvqrXS9lEVVR0a1GWS3s/wHvSCMoaaLSytObMA==
   dependencies:
+    "@babel/cli" "^7.6.4"
     "@babel/core" "^7.6.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.4.4"
     "@babel/plugin-proposal-optional-chaining" "^7.6.0"
@@ -729,7 +730,10 @@
     babel-plugin-transform-imports "^2.0.0"
     better-node-env "^1.0.3"
     child-process-promise "^2.2.1"
+    chokidar "^3.2.3"
+    debounce "^1.2.0"
     depcheck dword-design/depcheck#fork
+    eslint "^6.6.0"
     eslint-import-resolver-babel-module "^5.1.0"
     eslint-plugin-import "^2.18.2"
     eslint-plugin-mocha "^6.2.1"
