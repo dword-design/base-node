@@ -1,6 +1,6 @@
 {
   "name": "@dword-design/base-node",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": "src/index.js",
   "repository": "https://github.com/dword-design/base-node",
   "author": "Sebastian Landwehr <info@dword-design.de>",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
     "@dword-design/base-core": "^0.2.1",
     "child-process-promise": "^2.2.1",
     "chokidar": "^3.2.3",
