@@ -710,10 +710,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@dword-design/base-core@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-core/-/base-core-0.2.1.tgz#3f99e039a703518a192909ef3e952717ebd204df"
-  integrity sha512-KTKpgdt6JTpkNlqYAxyD45Ww7rR0phik8KCuiSxNjltVDokY9elN6Px9VrLUze4gU+qis2cLvcwmunMraYiSdA==
+"@dword-design/base-core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-core/-/base-core-2.0.0.tgz#2a35d5796d18ea22560d7c318ff4c26d769d3c93"
+  integrity sha512-S/HwhrsM1ROkc462mHmZ2oZozMpxVMJtxiV4pbtkAN5INEv0NRSWSlef+UyiJOtQPNvLzXR2VwHUInGqX+ef4w==
   dependencies:
     "@babel/core" "^7.6.4"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.4.4"
