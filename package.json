@@ -12,9 +12,17 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "base prepare"
+    "prepare": "base prepare",
+    "test": "base test"
   },
   "dependencies": {
     "@dword-design/base": "^1.0.0"
+  },
+  "devDependencies": {
+    "expect": "^24.9.0",
+    "import-fresh": "^3.2.1",
+    "resolve-bin": "^0.4.0",
+    "wait-for-change": "^1.1.1",
+    "with-local-tmp-dir": "^2.2.0"
   }
 }
