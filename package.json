@@ -1,6 +1,6 @@
 {
   "name": "@dword-design/base-node",
-  "version": "0.4.4",
+  "version": "1.0.0",
   "repository": "https://github.com/dword-design/base-node",
   "author": "Sebastian Landwehr <info@dword-design.de>",
   "license": "MIT",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "prepare": "base prepare",
+    "start": "base start",
     "test": "base test"
   },
   "dependencies": {
