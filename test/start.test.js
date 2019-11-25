@@ -4,12 +4,16 @@ import expect from 'expect'
 import waitForChange from 'wait-for-change'
 import importFresh from 'import-fresh'
 import { resolve, join } from 'path'
+import outputFiles from 'output-files'
 import { outputFile } from 'fs'
 import resolveBin from 'resolve-bin'
+import { minimalProjectConfig } from '@dword-design/base'
 
 export const it = () => withLocalTmpDir(__dirname, async () => {
-  await outputFile('src/index.js', 'export default 1')
-
+  await outputFiles({
+    ...minimalProjectConfig,
+    'src/index.js': 'export default 1',
+  })
   const childProcess = await spawn(resolveBin.sync('@dword-design/base-node', { executable: 'base-node' }), ['start'])
     .catch(error => {
       if (error.code !== null) {
