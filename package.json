@@ -1,6 +1,6 @@
 {
   "name": "@dword-design/base-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": "dword-design/base-node",
   "author": "Sebastian Landwehr <info@dword-design.de>",
   "license": "MIT",
@@ -29,7 +29,8 @@
   },
   "maintainers": [],
   "contributors": [
-    "dword-design (http://www.dword-design.de)"
+    "dword-design (http://www.dword-design.de)",
+    "Renovate Bot (http://renovatebot.com)"
   ],
   "bugs": {
     "url": "https://github.com/dword-design/base-node/issues"
