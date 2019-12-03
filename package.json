@@ -1,18 +1,25 @@
 {
   "name": "@dword-design/base-node",
   "version": "1.0.3",
+  "bugs": {
+    "url": "https://github.com/dword-design/base-node/issues"
+  },
   "repository": "dword-design/base-node",
-  "author": "Sebastian Landwehr <info@dword-design.de>",
   "license": "MIT",
+  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "contributors": [
+    "dword-design (http://www.dword-design.de)",
+    "Renovate Bot (http://renovatebot.com)"
+  ],
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "bin": {
     "base-node": "./dist/cli.js"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "prepare": "base prepare",
+    "prepublishOnly": "base build",
     "start": "base start",
     "test": "base test"
   },
@@ -23,16 +30,8 @@
     "expect": "^24.9.0",
     "import-fresh": "^3.2.1",
     "output-files": "^1.1.7",
-    "resolve-bin": "^0.4.0",
     "wait-for-change": "^1.1.1",
     "with-local-tmp-dir": "^2.2.0"
   },
-  "maintainers": [],
-  "contributors": [
-    "dword-design (http://www.dword-design.de)",
-    "Renovate Bot (http://renovatebot.com)"
-  ],
-  "bugs": {
-    "url": "https://github.com/dword-design/base-node/issues"
-  }
+  "maintainers": []
 }
