@@ -755,10 +755,10 @@
     babel-plugin-module-resolver "^3.2.0"
     babel-plugin-transform-imports "^2.0.0"
 
-"@dword-design/base@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-2.0.1.tgz#80f9e81b61d207e78c19257efa00b7b9dd90d488"
-  integrity sha512-VyzlOFfz0RgHtulWsKugmErjfQsSdy2DmYPs3jJXw30/WGfpKVZ9E7RxJn8BmY2cTzG7gChjcCJximuut+pw2Q==
+"@dword-design/base@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-3.0.0.tgz#f0cad2ad552c8d0881944631a1a0a4f34b2880b0"
+  integrity sha512-xeL92xxdGouvRBW0tUll3dl2fKpSZpCSVXSzPHPTTY2eAu0noAjchToV3jKZ3ZOcAnfR2VZW+Lhb9lOLcRhpDA==
   dependencies:
     "@babel/cli" "^7.6.4"
     "@babel/core" "^7.6.4"
