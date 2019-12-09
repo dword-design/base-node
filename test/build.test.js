@@ -10,7 +10,7 @@ export const it = () => withLocalTmpDir(__dirname, async () => {
     ...minimalProjectConfig,
     'src/index.js': 'export default 1',
   })
-  await spawn('base-node', ['build'])
+  await spawn('base', ['build'])
   expect(require(resolve('dist'))).toEqual(1)
 })
 export const timeout = 10000

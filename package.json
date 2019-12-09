@@ -1,10 +1,10 @@
 {
-  "name": "@dword-design/base-node",
-  "version": "1.2.0",
+  "name": "@dword-design/base-config-node",
+  "version": "1.0.0",
   "bugs": {
-    "url": "https://github.com/dword-design/base-node/issues"
+    "url": "https://github.com/dword-design/base-config-node/issues"
   },
-  "repository": "dword-design/base-node",
+  "repository": "dword-design/base-config-node",
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
   "contributors": [
@@ -15,18 +15,20 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "bin": {
-    "base-node": "./dist/cli.js"
-  },
   "scripts": {
     "prepublishOnly": "base build",
     "start": "base start",
     "test": "base test"
   },
   "dependencies": {
-    "@dword-design/base": "^3.0.0"
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "chokidar": "^3.3.0",
+    "debounce": "^1.2.0",
+    "eslint": "^6.7.2"
   },
   "devDependencies": {
+    "@dword-design/base": "^3.1.2",
     "expect": "^24.9.0",
     "import-fresh": "^3.2.1",
     "output-files": "^1.1.7",
