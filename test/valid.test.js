@@ -33,7 +33,21 @@ export const it = async () => {
       Updating README.md …
       Successfully compiled 1 file with Babel.
     ` + '\n')
-    expect(await glob('*', { cwd: 'dist' })).toEqual(['index.js', 'test.txt'])
+    expect(await glob('*', { dot: true })).toEqual([
+      '.babelrc',
+      '.editorconfig',
+      '.eslintrc.json',
+      '.gitignore',
+      '.gitpod.yml',
+      '.renovaterc.json',
+      '.travis.yml',
+      'dist',
+      'LICENSE.md',
+      'package.json',
+      'README.md',
+      'src',
+    ])
+    expect(await glob('*', { dot: true, cwd: 'dist' })).toEqual(['index.js', 'test.txt'])
     expect(require(P.resolve('dist'))).toEqual(1)
   })
 

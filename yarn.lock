@@ -795,7 +795,7 @@
     safe-readfile "^1.0.2"
     spawn-wrap "^1.4.3"
 
-"@dword-design/eslint-config@^1.0.0":
+"@dword-design/eslint-config@^1.0.0", "@dword-design/eslint-config@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@dword-design/eslint-config/-/eslint-config-1.2.0.tgz#742ea26975fe22f02dcc50946a535b07334ff186"
   integrity sha512-64BiG/bs6TGxqYGVYNZqERuFiYNYXhQBRJ77/AXW98dtD33w3BLmy2eDSkrea60Q4iyS8EX29DSV4bgX3zXibw==
