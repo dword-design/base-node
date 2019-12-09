@@ -10,7 +10,7 @@ const build = async () => {
   await outputFile('.eslintrc.json', JSON.stringify(eslintConfig, undefined, 2))
   await lint()
   await remove('dist')
-  await spawn('babel', ['--out-dir', 'dist', '--copy-files', 'src'], { stdio: 'inherit' })
+  await spawn('babel', ['--config-file', '@dword-design/babel-config', '--out-dir', 'dist', '--copy-files', 'src'], { stdio: 'inherit' })
 }
 
 export default {
