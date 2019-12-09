@@ -7,7 +7,7 @@ import { minimalProjectConfig, minimalPackageConfig } from '@dword-design/base'
 import waitForChange from 'wait-for-change'
 import sortPackageJson from 'sort-package-json'
 import glob from 'glob-promise'
-import { outputFile } from 'fs'
+import { outputFile, readFile } from 'fs'
 import stealthyRequire from 'stealthy-require'
 import { endent } from '@functions'
 
@@ -34,7 +34,6 @@ export const it = async () => {
       Successfully compiled 1 file with Babel.
     ` + '\n')
     expect(await glob('*', { dot: true })).toEqual([
-      '.babelrc',
       '.editorconfig',
       '.eslintrc.json',
       '.gitignore',
@@ -48,6 +47,7 @@ export const it = async () => {
       'src',
     ])
     expect(await glob('*', { dot: true, cwd: 'dist' })).toEqual(['index.js', 'test.txt'])
+    expect(await readFile('.gitignore', 'utf8')).toMatch('/.eslintrc.json\n')
     expect(require(P.resolve('dist'))).toEqual(1)
   })
 
@@ -56,8 +56,6 @@ export const it = async () => {
     const childProcess = await spawn('base', ['start'], { capture: ['stdout'] })
       .catch(error => {
         expect(error.stdout).toEqual(endent`
-          Copying config files …
-          Updating README.md …
           Successfully compiled 1 file with Babel.
           Successfully compiled 1 file with Babel.
         ` + '\n')
