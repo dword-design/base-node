@@ -23,9 +23,7 @@ export default {
           try {
             await build()
           } catch (error) {
-            if (error.name !== 'ChildProcessError') {
-              console.log(error)
-            }
+            console.log(error)
           }
         },
         200
