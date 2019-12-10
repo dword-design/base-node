@@ -23,10 +23,12 @@
   "dependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
+    "@dword-design/aliases": "^2.0.1",
     "@dword-design/babel-config": "^1.0.4",
     "@dword-design/eslint-config": "^1.2.0",
     "chokidar": "^3.3.0",
     "debounce": "^1.2.0",
+    "depcheck": "dword-design/depcheck#fork",
     "eslint": "^6.7.2",
     "get-package-name": "^1.0.0"
   },

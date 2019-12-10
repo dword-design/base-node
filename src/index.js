@@ -3,6 +3,8 @@ import chokidar from 'chokidar'
 import debounce from 'debounce'
 import { remove, outputFile } from 'fs'
 import getPackageName from 'get-package-name'
+import babelConfig from '@dword-design/babel-config'
+import depcheckConfig from './depcheck.config'
 
 const lint = async () => {
   await outputFile('.eslintrc.json', JSON.stringify({ extends: getPackageName(require.resolve('@dword-design/eslint-config')) }, undefined, 2) + '\n')
@@ -16,8 +18,11 @@ const build = async () => {
 }
 
 export default {
-  lint,
+  babelConfig,
   build,
+  depcheckConfig,
+  gitignore: ['/.eslintrc.json'],
+  lint,
   start: () => chokidar
     .watch('src')
     .on(
@@ -33,7 +38,4 @@ export default {
         200
       )
     ),
-  gitignore: [
-    '/.eslintrc.json',
-  ],
 }
