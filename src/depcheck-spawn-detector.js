@@ -1,4 +1,4 @@
-import { map, filter, keys, compact, flatMap, flatten, groupBy, mapValues, uniq } from '@functions'
+import { map, filter, keys, compact, flatMap, flatten, groupBy, mapValues, uniq } from '@dword-design/functions'
 
 export default (node, deps) => {
   if (node.type === 'CallExpression'

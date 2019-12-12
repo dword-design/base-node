@@ -1,6 +1,6 @@
 import withLocalTmpDir from 'with-local-tmp-dir'
-import { spawn } from 'child_process'
-import { exists, outputFile } from 'fs'
+import { spawn } from 'child-process-promise'
+import { exists, outputFile } from 'fs-extra'
 import expect from 'expect'
 import { minimalPackageConfig, minimalProjectConfig } from '@dword-design/base'
 import outputFiles from 'output-files'
