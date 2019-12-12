@@ -7,10 +7,6 @@
   "repository": "dword-design/base-config-node",
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
-  "contributors": [
-    "dword-design (http://www.dword-design.de)",
-    "Renovate Bot (http://renovatebot.com)"
-  ],
   "files": [
     "dist"
   ],
@@ -41,5 +37,9 @@
     "wait-for-change": "^1.1.1",
     "with-local-tmp-dir": "^2.2.0"
   },
+  "contributors": [
+    "dword-design (http://www.dword-design.de)",
+    "Renovate Bot (http://renovatebot.com)"
+  ],
   "maintainers": []
 }
