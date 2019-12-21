@@ -5,10 +5,22 @@ import { remove, outputFile } from 'fs-extra'
 import getPackageName from 'get-package-name'
 import babelConfig from '@dword-design/babel-config'
 import depcheckConfig from './depcheck.config'
+import { flatMap } from '@dword-design/functions'
+import P from 'path'
 
 const lint = async () => {
   await outputFile('.eslintrc.json', JSON.stringify({ extends: getPackageName(require.resolve('@dword-design/eslint-config')) }, undefined, 2) + '\n')
-  await spawn('eslint', ['--ext', '.js,.json', '--ignore-path', '.gitignore', '.'], { stdio: 'inherit' })
+  const workspaces = require(P.resolve('package.json')).workspaces ?? []
+  await spawn(
+    'eslint',
+    [
+      '--ext', '.js,.json',
+      '--ignore-path', '.gitignore',
+      ...workspaces |> flatMap(pattern => ['--ignore-pattern', pattern]),
+      '.',
+    ],
+    { stdio: 'inherit' }
+  )
 }
 
 const build = async () => {
