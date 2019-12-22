@@ -1,5 +1,5 @@
-import getDepcheckBabelParser from '@dword-design/get-depcheck-babel-parser'
-import depcheckSpawnDetector from './depcheck-spawn-detector'
+import getBabelParser from '@dword-design/get-depcheck-babel-parser'
+import spawnDetector from '@dword-design/depcheck-spawn-detector'
 import depcheck from 'depcheck'
 import babelConfig from '@dword-design/babel-config'
 
@@ -8,10 +8,10 @@ export default {
     depcheck.detector.importDeclaration,
     depcheck.detector.requireCallExpression,
     depcheck.detector.requireResolveCallExpression,
-    depcheckSpawnDetector,
+    spawnDetector,
   ],
   parsers: {
-    '*.js': getDepcheckBabelParser(babelConfig),
+    '*.js': getBabelParser(babelConfig),
   },
   specials: [
     depcheck.special.bin,
