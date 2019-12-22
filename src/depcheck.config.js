@@ -1,4 +1,4 @@
-import getDepcheckBabelParser from './get-depcheck-babel-parser'
+import getDepcheckBabelParser from '@dword-design/get-depcheck-babel-parser'
 import depcheckSpawnDetector from './depcheck-spawn-detector'
 import depcheck from 'depcheck'
 import babelConfig from '@dword-design/babel-config'
