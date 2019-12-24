@@ -4,7 +4,7 @@ import debounce from 'debounce'
 import { remove, outputFile } from 'fs-extra'
 import getPackageName from 'get-package-name'
 import babelConfig from '@dword-design/babel-config'
-import depcheckConfig from './depcheck.config'
+import depcheckConfig from '@dword-design/depcheck-config'
 import { flatMap } from '@dword-design/functions'
 import P from 'path'
 
