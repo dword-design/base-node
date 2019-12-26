@@ -7,6 +7,7 @@ import babelConfig from '@dword-design/babel-config'
 import depcheckConfig from '@dword-design/depcheck-config'
 import { flatMap } from '@dword-design/functions'
 import P from 'path'
+import nodeEnv from 'better-node-env'
 
 const lint = async () => {
   await outputFile('.eslintrc.json', JSON.stringify({ extends: getPackageName(require.resolve('@dword-design/eslint-config')) }, undefined, 2) + '\n')
@@ -35,19 +36,25 @@ export default {
   depcheckConfig,
   gitignore: ['/.eslintrc.json'],
   lint,
-  start: () => chokidar
-    .watch('src')
-    .on(
-      'all',
-      debounce(
-        async () => {
-          try {
-            await build()
-          } catch (error) {
-            console.log(error)
-          }
-        },
-        200
-      )
-    ),
+  start: () => {
+    if (nodeEnv === 'production') {
+      return build()
+    } else {
+      return chokidar
+        .watch('src')
+        .on(
+          'all',
+          debounce(
+            async () => {
+              try {
+                await lint()
+              } catch (error) {
+                console.log(error)
+              }
+            },
+            200
+          )
+        )
+    }
+  },
 }
