@@ -1,9 +1,7 @@
 {
   "name": "@dword-design/base-config-node",
   "version": "1.4.1",
-  "bugs": {
-    "url": "https://github.com/dword-design/base-config-node/issues"
-  },
+  "description": "",
   "repository": "dword-design/base-config-node",
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
@@ -36,12 +34,6 @@
     "expect": "^24.9.0",
     "glob-promise": "^3.4.0",
     "output-files": "^1.1.7",
-    "sort-package-json": "^1.30.0",
     "with-local-tmp-dir": "^2.2.0"
-  },
-  "contributors": [
-    "dword-design (http://www.dword-design.de)",
-    "Renovate Bot (http://renovatebot.com)"
-  ],
-  "maintainers": []
+  }
 }

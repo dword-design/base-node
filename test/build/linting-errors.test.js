@@ -2,18 +2,20 @@ import withLocalTmpDir from 'with-local-tmp-dir'
 import { spawn } from 'child-process-promise'
 import { exists } from 'fs-extra'
 import expect from 'expect'
-import packageConfig from '../package.config'
 import outputFiles from 'output-files'
-import sortPackageJson from 'sort-package-json'
+import { endent } from '@dword-design/functions'
 
 export default async () => withLocalTmpDir(__dirname, async () => {
   await outputFiles({
-    'package.json': JSON.stringify(sortPackageJson({
-      ...packageConfig,
-      devDependencies: {
-        '@dword-design/base-config-node': '^1.0.0',
-      },
-    }), undefined, 2),
+    'package.json': endent`
+      {
+        "baseConfig": "node",
+        "devDependencies": {
+          "@dword-design/base-config-node": "^1.0.0"
+        }
+      }
+
+    `,
     'src/index.js': 'console.log(\'hi\');',
   })
   let stdout
