@@ -1,21 +1,23 @@
 import withLocalTmpDir from 'with-local-tmp-dir'
 import { spawn } from 'child-process-promise'
 import { outputFile } from 'fs-extra'
-import packageConfig from '../package.config'
 import outputFiles from 'output-files'
-import sortPackageJson from 'sort-package-json'
+import { endent } from '@dword-design/functions'
 
 export default () => withLocalTmpDir(__dirname, async () => {
   await outputFiles({
-    'package.json': JSON.stringify(sortPackageJson({
-      ...packageConfig,
-      devDependencies: {
-        '@dword-design/base-config-node': '^1.0.0',
-      },
-    }), undefined, 2),
+    'package.json': endent`
+      {
+        "baseConfig": "node",
+        "devDependencies": {
+          "@dword-design/base-config-node": "^1.0.0"
+        }
+      }
+
+    `,
     'src/index.js': 'export default foo',
   })
-  const childProcess = spawn('base', ['start'])
+  const childProcess = spawn('base', ['start'], { stdio: ['ignore', 'pipe', 'ignore'] })
     .catch(error => {
       if (error.code !== null) {
         throw error
@@ -34,5 +36,7 @@ export default () => withLocalTmpDir(__dirname, async () => {
       resolve()
     }
   }))
-  await childProcess.kill()
+  childProcess.stdout.removeAllListeners('data')
+  childProcess.stdout.destroy()
+  childProcess.kill()
 })
