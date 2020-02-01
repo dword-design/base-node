@@ -1,13 +1,8 @@
 import { spawn } from 'child-process-promise'
-import chokidar from 'chokidar'
-import debounce from 'debounce'
 import { remove, outputFile } from 'fs-extra'
 import getPackageName from 'get-package-name'
-import babelConfig from '@dword-design/babel-config'
-import depcheckConfig from '@dword-design/depcheck-config'
 import { flatMap } from '@dword-design/functions'
 import P from 'path'
-import nodeEnv from 'better-node-env'
 
 const lint = async () => {
   await outputFile('.eslintrc.json', JSON.stringify({ extends: getPackageName(require.resolve('@dword-design/eslint-config')) }, undefined, 2) + '\n')
@@ -24,37 +19,14 @@ const lint = async () => {
   )
 }
 
-const build = async () => {
-  await lint()
-  await remove('dist')
-  await spawn('babel', ['--config-file', getPackageName(require.resolve('@dword-design/babel-config')), '--out-dir', 'dist', '--copy-files', 'src'], { stdio: 'inherit' })
-}
-
 export default {
-  babelConfig,
-  build,
-  depcheckConfig,
   gitignore: ['/.eslintrc.json'],
-  lint,
-  start: () => {
-    if (nodeEnv === 'production') {
-      return build()
-    } else {
-      return chokidar
-        .watch('src')
-        .on(
-          'all',
-          debounce(
-            async () => {
-              try {
-                await lint()
-              } catch (error) {
-                console.log(error)
-              }
-            },
-            200
-          )
-        )
-    }
+  commands: {
+    prepublishOnly: async () => {
+      await lint()
+      await remove('dist')
+      await spawn('babel', ['--config-file', getPackageName(require.resolve('@dword-design/babel-config')), '--out-dir', 'dist', '--copy-files', 'src'], { stdio: 'inherit' })
+    },
+    test: lint,
   },
 }
