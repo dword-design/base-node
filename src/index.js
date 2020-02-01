@@ -21,12 +21,12 @@ const lint = async () => {
 
 export default {
   gitignore: ['/.eslintrc.json'],
+  test: lint,
   commands: {
     prepublishOnly: async () => {
       await lint()
       await remove('dist')
       await spawn('babel', ['--config-file', getPackageName(require.resolve('@dword-design/babel-config')), '--out-dir', 'dist', '--copy-files', 'src'], { stdio: 'inherit' })
     },
-    test: lint,
   },
 }
