@@ -5,13 +5,14 @@
   "repository": "dword-design/base-config-node",
   "license": "MIT",
   "author": "Sebastian Landwehr <info@dword-design.de>",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "base build",
-    "start": "base start",
+    "depgraph": "base depgraph",
+    "prepare": "base prepare",
+    "prepublishOnly": "base prepublishOnly",
     "test": "base test"
   },
   "dependencies": {
@@ -27,8 +28,8 @@
     "safe-require": "^1.0.3"
   },
   "devDependencies": {
-    "@dword-design/base": "^4.0.0",
-    "expect": "^24.9.0",
+    "@dword-design/base": "^5.0.0",
+    "expect": "^25.1.0",
     "glob-promise": "^3.4.0",
     "output-files": "^1.1.7",
     "with-local-tmp-dir": "^2.2.0"

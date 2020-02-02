@@ -24,7 +24,8 @@ export default () => withLocalTmpDir(__dirname, async () => {
       'test.txt': 'foo',
     },
   })
-  const { stdout } = await spawn('base', ['build'], { capture: ['stdout'] })
+  await spawn('base', ['prepare'])
+  const { stdout } = await spawn('base', ['prepublishOnly'], { capture: ['stdout'] })
   expect(stdout).toEqual('Successfully compiled 1 file with Babel.\n')
   expect(await glob('*', { dot: true })).toEqual([
     '.editorconfig',

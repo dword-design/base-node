@@ -1,11 +1,10 @@
-import withLocalTmpDir from 'with-local-tmp-dir'
-import { spawn } from 'child-process-promise'
-import { exists } from 'fs-extra'
-import expect from 'expect'
 import outputFiles from 'output-files'
+import { spawn } from 'child-process-promise'
+import withLocalTmpDir from 'with-local-tmp-dir'
+import expect from 'expect'
 import { endent } from '@dword-design/functions'
 
-export default async () => withLocalTmpDir(__dirname, async () => {
+export default () => withLocalTmpDir(__dirname, async () => {
   await outputFiles({
     'package.json': endent`
       {
@@ -16,15 +15,14 @@ export default async () => withLocalTmpDir(__dirname, async () => {
       }
 
     `,
-    'src/index.js': 'console.log(\'hi\');',
+    'src/index.js': 'foo bar',
   })
+  await spawn('base', ['prepare'])
   let stdout
   try {
-    await spawn('base', ['build'], { capture: ['stdout'] })
+    await spawn('base', ['prepublishOnly'], { capture: ['stdout'] })
   } catch (error) {
     stdout = error.stdout
   }
-  expect(stdout).toMatch('error  Extra semicolon  semi')
-  expect(await exists('dist')).toBeFalsy()
+  expect(stdout).toMatch('Unexpected token, expected ";"')
 })
-
