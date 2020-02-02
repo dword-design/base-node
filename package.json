@@ -23,7 +23,8 @@
     "child-process-promise": "^2.2.1",
     "eslint": "^6.7.2",
     "fs-extra": "^8.1.0",
-    "get-package-name": "^1.0.0"
+    "get-package-name": "^1.0.0",
+    "safe-require": "^1.0.3"
   },
   "devDependencies": {
     "@dword-design/base": "^4.0.0",

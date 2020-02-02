@@ -3,10 +3,11 @@ import { remove, outputFile } from 'fs-extra'
 import getPackageName from 'get-package-name'
 import { flatMap } from '@dword-design/functions'
 import P from 'path'
+import safeRequire from 'safe-require'
 
 const lint = async () => {
   await outputFile('.eslintrc.json', JSON.stringify({ extends: getPackageName(require.resolve('@dword-design/eslint-config')) }, undefined, 2) + '\n')
-  const workspaces = require(P.resolve('package.json')).workspaces ?? []
+  const workspaces = safeRequire(P.join(process.cwd(), 'package.json'))?.workspaces ?? []
   await spawn(
     'eslint',
     [
