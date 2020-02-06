@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@dword-design/base": "^5.0.0",
-    "expect": "^25.1.0",
     "glob-promise": "^3.4.0",
     "output-files": "^1.1.7",
     "with-local-tmp-dir": "^2.2.0"
