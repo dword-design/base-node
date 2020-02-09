@@ -36,7 +36,8 @@ export default {
         [
           '--config-file', getPackageName(require.resolve('@dword-design/babel-config')),
           '--out-dir', 'dist',
-          '--copy-files', 'src',
+          '--copy-files',
+          'src',
         ],
         { stdio: 'inherit' },
       )
