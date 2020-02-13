@@ -20,6 +20,7 @@ export default () => withLocalTmpDir(__dirname, async () => {
     `,
     src: {
       'index.js': 'export default 1',
+      'index.spec.js': '',
       'test.txt': 'foo',
     },
   })

@@ -1,5 +1,5 @@
 import { spawn } from 'child-process-promise'
-import { remove, outputFile } from 'fs-extra'
+import { remove, outputFile, copy, stat } from 'fs-extra'
 import getPackageName from 'get-package-name'
 import { flatMap } from '@dword-design/functions'
 import P from 'path'
@@ -36,10 +36,15 @@ export default {
         [
           '--config-file', getPackageName(require.resolve('@dword-design/babel-config')),
           '--out-dir', 'dist',
-          '--copy-files',
+          '--ignore', '**/*.spec.js',
           'src',
         ],
         { stdio: 'inherit' },
+      )
+      await copy(
+        'src',
+        'dist',
+        { filter: async file => (file |> stat |> await).isDirectory() || !file.endsWith('.spec.js') },
       )
     },
   },
