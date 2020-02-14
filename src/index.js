@@ -44,7 +44,7 @@ export default {
       await copy(
         'src',
         'dist',
-        { filter: async file => (file |> stat |> await).isDirectory() || !file.endsWith('.spec.js') },
+        { filter: async file => (file |> stat |> await).isDirectory() || !file.endsWith('.js') },
       )
     },
   },
