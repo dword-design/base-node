@@ -31,6 +31,11 @@ export default {
     prepublishOnly: async () => {
       await lint()
       await remove('dist')
+      await copy(
+        'src',
+        'dist',
+        { filter: async file => (file |> stat |> await).isDirectory() || !file.endsWith('.js') },
+      )
       await spawn(
         'babel',
         [
@@ -40,11 +45,6 @@ export default {
           'src',
         ],
         { stdio: 'inherit' },
-      )
-      await copy(
-        'src',
-        'dist',
-        { filter: async file => (file |> stat |> await).isDirectory() || !file.endsWith('.js') },
       )
     },
   },
