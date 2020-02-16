@@ -20,15 +20,14 @@
     "@babel/core": "^7.7.5",
     "@dword-design/babel-config": "^1.0.4",
     "@dword-design/eslint-config": "^1.2.0",
-    "@dword-design/functions": "^2.2.2",
     "child-process-promise": "^2.2.1",
     "eslint": "^6.7.2",
     "fs-extra": "^8.1.0",
-    "get-package-name": "^1.0.0",
-    "safe-require": "dword-design/node-safe-require#fork"
+    "get-package-name": "^1.0.0"
   },
   "devDependencies": {
     "@dword-design/base": "^5.0.0",
+    "@dword-design/functions": "^2.2.2",
     "glob-promise": "^3.4.0",
     "output-files": "^1.1.7",
     "with-local-tmp-dir": "^2.2.0"
