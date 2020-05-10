@@ -1,3 +1,10 @@
+## [1.5.12](https://github.com/dword-design/base-config-node/compare/v1.5.11...v1.5.12) (2020-05-10)
+
+
+### Bug Fixes
+
+* add auto fixing ([e587aa6](https://github.com/dword-design/base-config-node/commit/e587aa686886b4bb5259a7c294d1a76aa9bc7d78))
+
 ## [1.5.11](https://github.com/dword-design/base-config-node/compare/v1.5.10...v1.5.11) (2020-03-19)
 
 
