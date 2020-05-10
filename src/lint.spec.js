@@ -7,9 +7,10 @@ import P from 'path'
 import lint from './lint'
 
 export default {
-  'linting errors': () => withLocalTmpDir(async () => {
-    await outputFiles({
-      'package.json': endent`
+  'linting errors': () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'package.json': endent`
         {
           "baseConfig": "node",
           "devDependencies": {
@@ -18,14 +19,15 @@ export default {
         }
 
       `,
-      'src/index.js': 'foo bar',
-    })
-    await execa.command('base prepare')
-    await expect(lint()).rejects.toThrow('Parsing error')
-  }),
-  fixable: () => withLocalTmpDir(async () => {
-    await outputFiles({
-      'package.json': endent`
+        'src/index.js': 'foo bar',
+      })
+      await execa.command('base prepare')
+      await expect(lint()).rejects.toThrow('Parsing error')
+    }),
+  fixable: () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'package.json': endent`
         {
           "baseConfig": "node",
           "devDependencies": {
@@ -34,10 +36,15 @@ export default {
         }
 
       `,
-      'src/index.js': 'console.log(\'foo\');',
-    })
-    await execa.command('base prepare')
-    await lint()
-    expect(await readFile(P.join('src', 'index.js'), 'utf8')).toEqual('console.log(\'foo\')')
-  }),
+        'src/index.js': "console.log('foo');",
+      })
+      await execa.command('base prepare')
+      await lint()
+      expect(await readFile(P.join('src', 'index.js'), 'utf8')).toEqual(
+        endent`
+          console.log('foo')
+          
+        `
+      )
+    }),
 }

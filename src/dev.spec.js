@@ -9,9 +9,10 @@ import stealthyRequire from 'stealthy-require'
 import dev from './dev'
 
 export default {
-  valid: () => withLocalTmpDir(async () => {
-    await outputFiles({
-      'package.json': endent`
+  valid: () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'package.json': endent`
         {
           "devDependencies": {
             "@dword-design/base-config-node": "^1.0.0"
@@ -20,19 +21,23 @@ export default {
         }
 
       `,
-      'src/index.js': 'export default 1',
-    })
-    await execa.command('base prepare')
-    const watcher = dev({ log: false })
-    try {
-      await waitFile({ resources: [P.join('dist', 'index.js')] })
-      expect(require(P.join(process.cwd(), 'dist', 'index.js'))).toEqual(1)
-      await remove(P.join('dist', 'index.js'))
-      await writeFile(P.resolve('src', 'index.js'), 'export default 2')
-      await waitFile({ resources: [P.join('dist', 'index.js')] })
-      expect(stealthyRequire(require.cache, () => require(P.join(process.cwd(), 'dist', 'index.js')))).toEqual(2)
-    } finally {
-      await watcher.close()
-    }
-  }),
+        'src/index.js': 'export default 1',
+      })
+      await execa.command('base prepare')
+      const watcher = dev({ log: false })
+      try {
+        await waitFile({ resources: [P.join('dist', 'index.js')] })
+        expect(require(P.join(process.cwd(), 'dist', 'index.js'))).toEqual(1)
+        await remove(P.join('dist', 'index.js'))
+        await writeFile(P.resolve('src', 'index.js'), 'export default 2')
+        await waitFile({ resources: [P.join('dist', 'index.js')] })
+        expect(
+          stealthyRequire(require.cache, () =>
+            require(P.join(process.cwd(), 'dist', 'index.js'))
+          )
+        ).toEqual(2)
+      } finally {
+        await watcher.close()
+      }
+    }),
 }

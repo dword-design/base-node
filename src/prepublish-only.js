@@ -9,13 +9,16 @@ export default async ({ log = true }) => {
   await execa(
     'babel',
     [
-      '--config-file', getPackageName(require.resolve('@dword-design/babel-config')),
-      '--out-dir', 'dist',
+      '--config-file',
+      getPackageName(require.resolve('@dword-design/babel-config')),
+      '--out-dir',
+      'dist',
       '--copy-files',
       '--no-copy-ignored',
-      '--ignore', '**/*.spec.js',
+      '--ignore',
+      '**/*.spec.js',
       'src',
     ],
-    { stdio: log ? 'inherit' : 'pipe' },
+    { stdio: log ? 'inherit' : 'pipe' }
   )
 }

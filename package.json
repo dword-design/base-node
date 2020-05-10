@@ -12,16 +12,16 @@
   "scripts": {
     "commit": "base commit",
     "depgraph": "base depgraph",
+    "dev": "base dev",
     "prepare": "base prepare",
     "prepublishOnly": "base prepublishOnly",
-    "release": "base release",
     "test": "base test"
   },
   "dependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@dword-design/babel-config": "^1.0.4",
-    "@dword-design/eslint-config": "^1.2.0",
+    "@dword-design/eslint-config": "^1.9.0",
     "@dword-design/functions": "^2.2.2",
     "chokidar": "^3.4.0",
     "debounce": "^1.2.0",
@@ -37,5 +37,8 @@
     "stealthy-require": "^1.1.1",
     "wait-file": "^1.0.5",
     "with-local-tmp-dir": "^2.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
