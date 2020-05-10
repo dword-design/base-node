@@ -40,7 +40,7 @@ export default {
         }
 
       `,
-      'src/index.js': 'console.log(\'hi\');',
+      'src/index.js': 'var foo = 2',
     })
     await execa.command('base prepare')
     let all
@@ -49,7 +49,7 @@ export default {
     } catch (error) {
       all = error.all
     }
-    expect(all).toMatch('error  Extra semicolon  semi')
+    expect(all).toMatch('\'foo\' is assigned a value but never used')
     expect(await exists('dist')).toBeFalsy()
   }),
   valid: () => withLocalTmpDir(async () => {
