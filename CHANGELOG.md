@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/dword-design/base-config-node/compare/v1.6.0...v1.6.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* upgrades ([98a2675](https://github.com/dword-design/base-config-node/commit/98a26757802a9ae17cbc91d0985aeace3931837f))
+
 # [1.6.0](https://github.com/dword-design/base-config-node/compare/v1.5.12...v1.6.0) (2020-05-10)
 
 
