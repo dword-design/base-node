@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/dword-design/base-config-node/compare/v1.6.1...v1.7.0) (2020-05-28)
+
+
+### Features
+
+* upgrade eslint and add verbose setting ([afa9b45](https://github.com/dword-design/base-config-node/commit/afa9b451138d75909b0831ec006f84c1fe804afd))
+
 ## [1.6.1](https://github.com/dword-design/base-config-node/compare/v1.6.0...v1.6.1) (2020-05-13)
 
 
