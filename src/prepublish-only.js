@@ -17,6 +17,7 @@ export default async ({ log = true }) => {
       '--no-copy-ignored',
       '--ignore',
       '**/*.spec.js',
+      '--verbose',
       'src',
     ],
     { stdio: log ? 'inherit' : 'pipe' }

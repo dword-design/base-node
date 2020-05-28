@@ -19,10 +19,12 @@ export default {
         }
 
       `,
-        'src/index.js': 'foo bar',
+        'src/index.js': "const foo = 'bar'",
       })
       await execa.command('base prepare')
-      await expect(lint()).rejects.toThrow('Parsing error')
+      await expect(lint()).rejects.toThrow(
+        "foo' is assigned a value but never used"
+      )
     }),
   fixable: () =>
     withLocalTmpDir(async () => {

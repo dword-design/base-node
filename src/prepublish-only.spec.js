@@ -1,7 +1,7 @@
 import outputFiles from 'output-files'
 import execa from 'execa'
-import withLocalTmpDir from 'with-local-tmp-dir'
 import { endent } from '@dword-design/functions'
+import withLocalTmpDir from 'with-local-tmp-dir'
 import { exists, readFile } from 'fs-extra'
 import glob from 'glob-promise'
 import P from 'path'
@@ -10,15 +10,13 @@ export default {
   'build errors': () =>
     withLocalTmpDir(async () => {
       await outputFiles({
-        'package.json': endent`
-        {
-          "baseConfig": "node",
-          "devDependencies": {
-            "@dword-design/base-config-node": "^1.0.0"
-          }
-        }
-
-      `,
+        'package.json': JSON.stringify(
+          {
+            baseConfig: require.resolve('.'),
+          },
+          undefined,
+          2
+        ),
         'src/index.js': 'foo bar',
       })
       await execa.command('base prepare')
@@ -33,15 +31,13 @@ export default {
   'linting errors': async () =>
     withLocalTmpDir(async () => {
       await outputFiles({
-        'package.json': endent`
-        {
-          "baseConfig": "node",
-          "devDependencies": {
-            "@dword-design/base-config-node": "^1.0.0"
-          }
-        }
-
-      `,
+        'package.json': JSON.stringify(
+          {
+            baseConfig: require.resolve('.'),
+          },
+          undefined,
+          2
+        ),
         'src/index.js': 'var foo = 2',
       })
       await execa.command('base prepare')
@@ -58,15 +54,13 @@ export default {
     withLocalTmpDir(async () => {
       await outputFiles({
         'dist/foo.js': '',
-        'package.json': endent`
-        {
-          "baseConfig": "node",
-          "devDependencies": {
-            "@dword-design/base-config-node": "^1.0.0"
-          }
-        }
-
-      `,
+        'package.json': JSON.stringify(
+          {
+            baseConfig: require.resolve('.'),
+          },
+          undefined,
+          2
+        ),
         src: {
           'index.js': 'export default 1',
           'index.spec.js': '',
@@ -75,7 +69,12 @@ export default {
       })
       await execa.command('base prepare')
       const { all } = await execa.command('base prepublishOnly', { all: true })
-      expect(all).toEqual('Successfully compiled 1 file with Babel.')
+      expect(all).toMatch(
+        new RegExp(endent`
+        ^src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
+        Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
+      `)
+      )
       expect(await glob('*', { dot: true, cwd: 'dist' })).toEqual([
         'index.js',
         'test.txt',
