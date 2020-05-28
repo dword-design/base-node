@@ -1,7 +1,6 @@
 import outputFiles from 'output-files'
 import execa from 'execa'
 import withLocalTmpDir from 'with-local-tmp-dir'
-import { endent } from '@dword-design/functions'
 import { writeFile, remove } from 'fs-extra'
 import P from 'path'
 import { waitFile } from 'wait-file'
@@ -12,15 +11,13 @@ export default {
   valid: () =>
     withLocalTmpDir(async () => {
       await outputFiles({
-        'package.json': endent`
-        {
-          "devDependencies": {
-            "@dword-design/base-config-node": "^1.0.0"
+        'package.json': JSON.stringify(
+          {
+            baseConfig: require.resolve('.'),
           },
-          "baseConfig": "node"
-        }
-
-      `,
+          undefined,
+          2
+        ),
         'src/index.js': 'export default 1',
       })
       await execa.command('base prepare')
