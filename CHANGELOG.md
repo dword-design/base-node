@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/dword-design/base-config-node/compare/v1.7.0...v1.7.1) (2020-05-28)
+
+
+### Bug Fixes
+
+* add npm publish field ([dd022ee](https://github.com/dword-design/base-config-node/commit/dd022eebd05d70936d9152b85c768bf846de14cf))
+
 # [1.7.0](https://github.com/dword-design/base-config-node/compare/v1.6.1...v1.7.0) (2020-05-28)
 
 
