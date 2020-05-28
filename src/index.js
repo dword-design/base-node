@@ -25,4 +25,5 @@ export default {
     dev,
     prepublishOnly,
   },
+  npmPublish: true,
 }
