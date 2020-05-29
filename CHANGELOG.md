@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/dword-design/base-config-node/compare/v1.7.1...v1.8.0) (2020-05-29)
+
+
+### Bug Fixes
+
+* remove dev test because it does not work in github actions ([049a9bf](https://github.com/dword-design/base-config-node/commit/049a9bfc77282fcf4bac7d682de868ab9665f917))
+
+
+### Features
+
+* add job matrix ([b358e19](https://github.com/dword-design/base-config-node/commit/b358e190979397ae0d782da7b904f171d896041e))
+
 ## [1.7.1](https://github.com/dword-design/base-config-node/compare/v1.7.0...v1.7.1) (2020-05-28)
 
 
