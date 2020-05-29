@@ -24,7 +24,7 @@ export default {
       const watcher = dev({ log: false })
       try {
         await waitFile({ resources: [P.join('dist', 'index.js')] })
-        expect(require(P.join(process.cwd(), 'dist', 'index.js'))).toEqual(1)
+        expect(require(P.resolve(process.cwd(), 'dist', 'index.js'))).toEqual(1)
         await remove(P.join('dist', 'index.js'))
         await writeFile(P.resolve('src', 'index.js'), 'export default 2')
         await waitFile({ resources: [P.join('dist', 'index.js')] })
