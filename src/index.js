@@ -8,6 +8,8 @@ import prepublishOnly from './prepublish-only'
 export default {
   allowedMatches: ['src'],
   gitignore: ['/.eslintrc.json'],
+  npmPublish: true,
+  useJobMatrix: true,
   prepare: () =>
     outputFile(
       '.eslintrc.json',
@@ -25,5 +27,4 @@ export default {
     dev,
     prepublishOnly,
   },
-  npmPublish: true,
 }
