@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/dword-design/base-config-node/compare/v1.8.0...v1.8.1) (2020-06-12)
+
+
+### Bug Fixes
+
+* add lint function ([1f5274f](https://github.com/dword-design/base-config-node/commit/1f5274f65584e3c475d6fb922256b5f19a7b4c9b))
+
 # [1.8.0](https://github.com/dword-design/base-config-node/compare/v1.7.1...v1.8.0) (2020-05-29)
 
 
