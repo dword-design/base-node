@@ -3,7 +3,7 @@ import { remove } from 'fs-extra'
 import getPackageName from 'get-package-name'
 import lint from './lint'
 
-export default async ({ log = true }) => {
+export default async options => {
   await lint()
   await remove('dist')
   await execa(
@@ -20,6 +20,6 @@ export default async ({ log = true }) => {
       '--verbose',
       'src',
     ],
-    { stdio: log ? 'inherit' : 'pipe' }
+    { stdio: options.log !== false ? 'inherit' : 'pipe' }
   )
 }

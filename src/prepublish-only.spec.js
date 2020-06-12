@@ -28,7 +28,7 @@ export default {
       }
       expect(all).toMatch('Unexpected token, expected ";"')
     }),
-  'linting errors': async () =>
+  'linting errors': () =>
     withLocalTmpDir(async () => {
       await outputFiles({
         'package.json': JSON.stringify(
@@ -68,8 +68,8 @@ export default {
         },
       })
       await execa.command('base prepare')
-      const { all } = await execa.command('base prepublishOnly', { all: true })
-      expect(all).toMatch(
+      const output = await execa.command('base prepublishOnly', { all: true })
+      expect(output.all).toMatch(
         new RegExp(endent`
         ^src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
         Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$

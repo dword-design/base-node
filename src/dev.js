@@ -2,12 +2,12 @@ import chokidar from 'chokidar'
 import debounce from 'debounce'
 import prepublishOnly from './prepublish-only'
 
-export default ({ log = true }) =>
+export default options =>
   chokidar.watch('src').on(
     'all',
     debounce(async () => {
       try {
-        await prepublishOnly({ log })
+        await prepublishOnly(options)
       } catch (error) {
         console.log(error.message)
       }
