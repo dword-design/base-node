@@ -22,6 +22,7 @@ export default {
 
   `
     ),
+  lint,
   test: lint,
   commands: {
     dev,
