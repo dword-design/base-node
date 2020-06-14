@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/dword-design/base-config-node/compare/v1.8.3...v1.8.4) (2020-06-14)
+
+
+### Bug Fixes
+
+* add dist to gitignore ([a686fa6](https://github.com/dword-design/base-config-node/commit/a686fa6f2c30fde63b87c780e1a2cfb9e4083684))
+
 ## [1.8.3](https://github.com/dword-design/base-config-node/compare/v1.8.2...v1.8.3) (2020-06-12)
 
 
