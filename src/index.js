@@ -8,7 +8,9 @@ import prepublishOnly from './prepublish-only'
 export default {
   allowedMatches: ['src'],
   gitignore: ['/.eslintrc.json', '/dist'],
-  main: 'dist/index.js',
+  packageConfig: {
+    main: 'dist/index.js',
+  },
   npmPublish: true,
   useJobMatrix: true,
   prepare: () =>
