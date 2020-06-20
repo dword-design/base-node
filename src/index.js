@@ -1,8 +1,9 @@
 import { endent } from '@dword-design/functions'
 import { outputFile } from 'fs-extra'
 import getPackageName from 'get-package-name'
-import lint from './lint'
+
 import dev from './dev'
+import lint from './lint'
 import prepublishOnly from './prepublish-only'
 
 export default {

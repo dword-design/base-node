@@ -1,10 +1,10 @@
-import outputFiles from 'output-files'
-import execa from 'execa'
 import { endent } from '@dword-design/functions'
-import withLocalTmpDir from 'with-local-tmp-dir'
+import execa from 'execa'
 import { exists, readFile } from 'fs-extra'
-import glob from 'glob-promise'
+import globby from 'globby'
+import outputFiles from 'output-files'
 import P from 'path'
+import withLocalTmpDir from 'with-local-tmp-dir'
 
 export default {
   'build errors': () =>
@@ -75,11 +75,13 @@ export default {
         Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
       `)
       )
-      expect(await glob('*', { dot: true, cwd: 'dist' })).toEqual([
-        'index.js',
-        'test.txt',
-      ])
-      expect(await readFile('.gitignore', 'utf8')).toMatch('/.eslintrc.json\n')
+      expect(
+        await globby('*', { onlyFiles: false, dot: true, cwd: 'dist' })
+      ).toEqual(['index.js', 'test.txt'])
+      expect(await readFile('.gitignore', 'utf8')).toMatch(endent`
+        /.eslintrc.json
+        
+      `)
       expect(require(P.resolve('dist'))).toEqual(1)
     }),
 }

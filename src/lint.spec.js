@@ -1,9 +1,10 @@
-import outputFiles from 'output-files'
-import withLocalTmpDir from 'with-local-tmp-dir'
-import execa from 'execa'
 import { endent } from '@dword-design/functions'
+import execa from 'execa'
 import { readFile } from 'fs-extra'
+import outputFiles from 'output-files'
 import P from 'path'
+import withLocalTmpDir from 'with-local-tmp-dir'
+
 import lint from './lint'
 
 export default {
