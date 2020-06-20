@@ -1,3 +1,10 @@
+## [1.8.6](https://github.com/dword-design/base-config-node/compare/v1.8.5...v1.8.6) (2020-06-20)
+
+
+### Bug Fixes
+
+* restrict eslint version because of a bug in eslint ([b65b8d3](https://github.com/dword-design/base-config-node/commit/b65b8d3befa2db78863004127478d2ab3c4ea824))
+
 ## [1.8.5](https://github.com/dword-design/base-config-node/compare/v1.8.4...v1.8.5) (2020-06-14)
 
 
