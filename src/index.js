@@ -9,6 +9,7 @@ import prepublishOnly from './prepublish-only'
 export default {
   allowedMatches: ['src'],
   gitignore: ['/.eslintrc.json', '/dist'],
+  editorIgnore: ['.eslintrc.json', 'dist'],
   packageConfig: {
     main: 'dist/index.js',
   },
