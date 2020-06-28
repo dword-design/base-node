@@ -1,3 +1,10 @@
+## [1.8.7](https://github.com/dword-design/base-config-node/compare/v1.8.6...v1.8.7) (2020-06-28)
+
+
+### Bug Fixes
+
+* add editorIgnore config ([2040401](https://github.com/dword-design/base-config-node/commit/2040401b409c8385f89ec78a51f77be5d8268bd4))
+
 ## [1.8.6](https://github.com/dword-design/base-config-node/compare/v1.8.5...v1.8.6) (2020-06-20)
 
 
