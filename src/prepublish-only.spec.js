@@ -10,9 +10,11 @@ export default {
   'build errors': () =>
     withLocalTmpDir(async () => {
       await outputFiles({
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
         'package.json': JSON.stringify(
           {
-            baseConfig: require.resolve('.'),
+            baseConfig: 'self',
           },
           undefined,
           2
@@ -31,9 +33,11 @@ export default {
   'linting errors': () =>
     withLocalTmpDir(async () => {
       await outputFiles({
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
         'package.json': JSON.stringify(
           {
-            baseConfig: require.resolve('.'),
+            baseConfig: 'self',
           },
           undefined,
           2
@@ -54,9 +58,11 @@ export default {
     withLocalTmpDir(async () => {
       await outputFiles({
         'dist/foo.js': '',
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
         'package.json': JSON.stringify(
           {
-            baseConfig: require.resolve('.'),
+            baseConfig: 'self',
           },
           undefined,
           2
@@ -76,11 +82,11 @@ export default {
       `)
       )
       expect(
-        await globby('*', { onlyFiles: false, dot: true, cwd: 'dist' })
+        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['index.js', 'test.txt'])
       expect(await readFile('.gitignore', 'utf8')).toMatch(endent`
         /.eslintrc.json
-        
+
       `)
       expect(require(P.resolve('dist'))).toEqual(1)
     }),

@@ -21,6 +21,6 @@ export default async options => {
       '--verbose',
       'src',
     ],
-    { stdio: options.log !== false ? 'inherit' : 'pipe' }
+    { stdio: options.log === false ? 'pipe' : 'inherit' }
   )
 }
