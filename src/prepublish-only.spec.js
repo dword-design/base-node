@@ -54,6 +54,28 @@ export default {
       expect(all).toMatch("'foo' is assigned a value but never used")
       expect(await exists('dist')).toBeFalsy()
     }),
+  'only copied files': () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
+        'package.json': JSON.stringify(
+          {
+            baseConfig: 'self',
+          },
+          undefined,
+          2
+        ),
+        src: {
+          'test.txt': 'foo',
+        },
+      })
+      await execa.command('base prepare')
+      await execa.command('base prepublishOnly', { all: true })
+      expect(
+        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
+      ).toEqual(['test.txt'])
+    }),
   valid: () =>
     withLocalTmpDir(async () => {
       await outputFiles({
