@@ -1,3 +1,10 @@
+## [1.8.10](https://github.com/dword-design/base-config-node/compare/v1.8.9...v1.8.10) (2020-08-23)
+
+
+### Bug Fixes
+
+* upgrades ([9851540](https://github.com/dword-design/base-config-node/commit/985154076c51f476ac53cebdc3003880fd452e64))
+
 ## [1.8.9](https://github.com/dword-design/base-config-node/compare/v1.8.8...v1.8.9) (2020-07-20)
 
 
