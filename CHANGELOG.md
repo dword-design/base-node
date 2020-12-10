@@ -1,3 +1,11 @@
+## [1.8.16](https://github.com/dword-design/base-config-node/compare/v1.8.15...v1.8.16) (2020-12-10)
+
+
+### Bug Fixes
+
+* replace get-package-name with depcheck-package-name ([fd8389c](https://github.com/dword-design/base-config-node/commit/fd8389ca88dfef874f185a12931da9c9a32d0679))
+* **deps:** update dependency get-package-name to v2 ([a198c74](https://github.com/dword-design/base-config-node/commit/a198c742d5c486255940be3c0f7b9420ea0b5710))
+
 ## [1.8.15](https://github.com/dword-design/base-config-node/compare/v1.8.14...v1.8.15) (2020-12-10)
 
 
