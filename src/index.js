@@ -1,6 +1,6 @@
 import { endent } from '@dword-design/functions'
+import packageName from 'depcheck-package-name'
 import { outputFile } from 'fs-extra'
-import getPackageName from 'get-package-name'
 
 import dev from './dev'
 import lint from './lint'
@@ -24,9 +24,7 @@ export default {
       '.eslintrc.json',
       endent`
     {
-      "extends": "${getPackageName(
-        require.resolve('@dword-design/eslint-config')
-      )}"
+      "extends": "${packageName`@dword-design/eslint-config`}"
     }
 
   `
