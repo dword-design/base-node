@@ -1,3 +1,11 @@
+## [1.8.15](https://github.com/dword-design/base-config-node/compare/v1.8.14...v1.8.15) (2020-12-10)
+
+
+### Bug Fixes
+
+* merge master ([ab27005](https://github.com/dword-design/base-config-node/commit/ab2700530591173df6dbd698d8c3493945f4825f))
+* **deps:** update dependency eslint to ~7.15.0 ([1e30745](https://github.com/dword-design/base-config-node/commit/1e3074547d68bb61f5f46e7917ddaf92620d7bd8))
+
 ## [1.8.14](https://github.com/dword-design/base-config-node/compare/v1.8.13...v1.8.14) (2020-12-10)
 
 
