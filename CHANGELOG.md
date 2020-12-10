@@ -1,3 +1,10 @@
+## [1.8.14](https://github.com/dword-design/base-config-node/compare/v1.8.13...v1.8.14) (2020-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency execa to v5 ([a275129](https://github.com/dword-design/base-config-node/commit/a275129d317c1e9ff96a6b5462992aeb739f4e09))
+
 ## [1.8.13](https://github.com/dword-design/base-config-node/compare/v1.8.12...v1.8.13) (2020-12-02)
 
 

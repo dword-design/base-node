@@ -1,6 +1,6 @@
 {
   "name": "@dword-design/base-config-node",
-  "version": "1.8.13",
+  "version": "1.8.14",
   "description": "",
   "repository": "dword-design/base-config-node",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "chokidar": "^3.4.0",
     "debounce": "^1.2.0",
     "eslint": "~7.15.0",
-    "execa": "^4.0.0",
+    "execa": "^5.0.0",
     "fs-extra": "^9.0.0",
     "get-package-name": "^1.0.0"
   },
