@@ -28,7 +28,9 @@ export default {
       } catch (error) {
         all = error.all
       }
-      expect(all).toMatch('Unexpected token, expected ";"')
+      expect(all).toMatch(
+        `${P.join('src', 'index.js')}: Missing semicolon (1:3)`
+      )
     }),
   'linting errors': () =>
     withLocalTmpDir(async () => {
