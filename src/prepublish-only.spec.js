@@ -78,6 +78,33 @@ export default {
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['test.txt'])
     }),
+  snapshots: () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'dist/foo.js': '',
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
+        'package.json': JSON.stringify(
+          {
+            baseConfig: 'self',
+          },
+          undefined,
+          2
+        ),
+        src: {
+          foo: {
+            '__image_snapshots__/foo-snap.png': '',
+            '__snapshots__/foo.js.snap': '',
+          },
+          'index.js': 'export default 1',
+        },
+      })
+      await execa.command('base prepare')
+      await execa.command('base prepublishOnly')
+      expect(
+        await globby('**', { cwd: 'dist', dot: true, onlyFiles: false })
+      ).toEqual(['index.js'])
+    }),
   valid: () =>
     withLocalTmpDir(async () => {
       await outputFiles({

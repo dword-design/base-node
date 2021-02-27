@@ -21,15 +21,16 @@
   "dependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
-    "@dword-design/babel-config": "^1.0.4",
     "@dword-design/eslint-config": "^1.9.0",
     "@dword-design/functions": "^2.2.2",
     "chokidar": "^3.4.0",
     "debounce": "^1.2.0",
+    "delete-empty": "^3.0.0",
     "depcheck-package-name": "^1.0.0",
     "eslint": "~7.20.0",
     "execa": "^5.0.0",
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.0",
+    "micromatch": "^4.0.2"
   },
   "devDependencies": {
     "@dword-design/base": "^7.0.0",

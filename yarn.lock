@@ -1555,7 +1555,6 @@
 
 "@vue/babel-preset-jsx@dword-design/jsx#fork-babel-preset-jsx":
   version "1.1.2"
-  uid a73cb9961541a60a66b1b99a69a32e00bc66d336
   resolved "https://codeload.github.com/dword-design/jsx/tar.gz/a73cb9961541a60a66b1b99a69a32e00bc66d336"
   dependencies:
     "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
@@ -1698,7 +1697,7 @@ ansi-align@^2.0.0:
   dependencies:
     string-width "^2.0.0"
 
-ansi-colors@4.1.1, ansi-colors@^4.1.1:
+ansi-colors@4.1.1, ansi-colors@^4.1.0, ansi-colors@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
   integrity sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==
@@ -1986,7 +1985,6 @@ babel-plugin-transform-imports@^2.0.0:
 
 babel-plugin-wildcard@dword-design/babel-plugin-wildcard#fork:
   version "6.0.0"
-  uid "691d11923ee2dcf63e86f205b0a2c998883e3a3c"
   resolved "https://codeload.github.com/dword-design/babel-plugin-wildcard/tar.gz/691d11923ee2dcf63e86f205b0a2c998883e3a3c"
   dependencies:
     rimraf "^2.6.2"
@@ -2967,6 +2965,16 @@ delegates@^1.0.0:
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
+delete-empty@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/delete-empty/-/delete-empty-3.0.0.tgz#f8040f2669f26fa7060bc2304e9859c593b685e8"
+  integrity sha512-ZUyiwo76W+DYnKsL3Kim6M/UOavPdBJgDYWOmuQhYaZvJH0AXAHbUNyEDtRbBra8wqqr686+63/0azfEk1ebUQ==
+  dependencies:
+    ansi-colors "^4.1.0"
+    minimist "^1.2.0"
+    path-starts-with "^2.0.0"
+    rimraf "^2.6.2"
+
 depcheck-detector-execa@^1.2.1:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/depcheck-detector-execa/-/depcheck-detector-execa-1.2.5.tgz#7601c422b0d3ea5ee9539d8f1fdf8a6282e6aa41"
@@ -2997,7 +3005,6 @@ depcheck-parser-babel@^1.2.0:
 
 depcheck@dword-design/depcheck#fork:
   version "0.0.1"
-  uid "8a9eb41006c2c6f9cbd79e4e68bf265e1c1df1dc"
   resolved "https://codeload.github.com/dword-design/depcheck/tar.gz/8a9eb41006c2c6f9cbd79e4e68bf265e1c1df1dc"
   dependencies:
     "@babel/parser" "^7.8.4"
@@ -3325,7 +3332,6 @@ eslint-config-prettier@^7.0.0:
 
 eslint-import-resolver-babel-module@dword-design/eslint-import-resolver-babel-module#fork:
   version "5.1.2"
-  uid "97550c5b7626a9cf582ea2392b9749702a27473d"
   resolved "https://codeload.github.com/dword-design/eslint-import-resolver-babel-module/tar.gz/97550c5b7626a9cf582ea2392b9749702a27473d"
   dependencies:
     pkg-up "^2.0.0"
@@ -7044,6 +7050,11 @@ path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+
+path-starts-with@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/path-starts-with/-/path-starts-with-2.0.0.tgz#ffd6d51926cd497022b44d392196033d5451892f"
+  integrity sha512-3UHTHbJz5+NLkPafFR+2ycJOjoc4WV2e9qCZCnm71zHiWaFrm1XniLVTkZXvaRgxr1xFh9JsTdicpH2yM03nLA==
 
 path-type@^2.0.0:
   version "2.0.0"
