@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/dword-design/base-config-node/compare/v1.8.20...v1.9.0) (2021-02-27)
+
+
+### Features
+
+* ignore snapshot folders ([#48](https://github.com/dword-design/base-config-node/issues/48)) ([3419979](https://github.com/dword-design/base-config-node/commit/34199795e88ed03393b9ecbfd0627f2fd718a767))
+
 ## [1.8.20](https://github.com/dword-design/base-config-node/compare/v1.8.19...v1.8.20) (2021-02-17)
 
 
