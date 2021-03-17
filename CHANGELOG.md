@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/dword-design/base-config-node/compare/v1.9.2...v1.9.3) (2021-03-17)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#52](https://github.com/dword-design/base-config-node/issues/52)) ([dbcfc1c](https://github.com/dword-design/base-config-node/commit/dbcfc1ce2e0c75d34f299694e616c58a19830a64))
+
 ## [1.9.2](https://github.com/dword-design/base-config-node/compare/v1.9.1...v1.9.2) (2021-03-17)
 
 
