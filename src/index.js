@@ -7,13 +7,13 @@ import lint from './lint'
 import prepublishOnly from './prepublish-only'
 
 export default {
-  allowedMatches: ['src'],
+  allowedMatches: ['/.eslintrc.json', 'src'],
   commands: {
     dev,
     prepublishOnly,
   },
   editorIgnore: ['.eslintrc.json', 'dist'],
-  gitignore: ['/.eslintrc.json', '/dist'],
+  gitignore: ['/dist'],
   lint,
   npmPublish: true,
   packageConfig: {

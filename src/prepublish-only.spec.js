@@ -1,6 +1,6 @@
 import { endent } from '@dword-design/functions'
 import execa from 'execa'
-import { exists, readFile } from 'fs-extra'
+import { exists } from 'fs-extra'
 import globby from 'globby'
 import outputFiles from 'output-files'
 import P from 'path'
@@ -135,10 +135,6 @@ export default {
       expect(
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['index.js', 'test.txt'])
-      expect(await readFile('.gitignore', 'utf8')).toMatch(endent`
-        /.eslintrc.json
-
-      `)
       expect(require(P.resolve('dist'))).toEqual(1)
     }),
 }
