@@ -1,6 +1,6 @@
 import { endent } from '@dword-design/functions'
 import execa from 'execa'
-import { exists, readFile } from 'fs-extra'
+import { exists } from 'fs-extra'
 import globby from 'globby'
 import outputFiles from 'output-files'
 import P from 'path'
