@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/dword-design/base-config-node/compare/v1.9.3...v1.9.4) (2021-03-20)
+
+
+### Bug Fixes
+
+* add .eslintrc.json to repo ([#53](https://github.com/dword-design/base-config-node/issues/53)) ([e378a36](https://github.com/dword-design/base-config-node/commit/e378a3615e33893c674fccbd9b2f8fa7e05d5040))
+
 ## [1.9.3](https://github.com/dword-design/base-config-node/compare/v1.9.2...v1.9.3) (2021-03-17)
 
 
