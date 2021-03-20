@@ -135,10 +135,6 @@ export default {
       expect(
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['index.js', 'test.txt'])
-      expect(await readFile('.gitignore', 'utf8')).toMatch(endent`
-        /.eslintrc.json
-
-      `)
       expect(require(P.resolve('dist'))).toEqual(1)
     }),
 }
