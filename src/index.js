@@ -7,7 +7,7 @@ import lint from './lint'
 import prepublishOnly from './prepublish-only'
 
 export default {
-  allowedMatches: ['/.eslintrc.json', 'src'],
+  allowedMatches: ['.eslintrc.json', 'src'],
   commands: {
     dev,
     prepublishOnly,
