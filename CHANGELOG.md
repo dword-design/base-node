@@ -1,3 +1,10 @@
+## [1.9.5](https://github.com/dword-design/base-config-node/compare/v1.9.4...v1.9.5) (2021-03-22)
+
+
+### Bug Fixes
+
+* fix allowed matches ([eab9ef2](https://github.com/dword-design/base-config-node/commit/eab9ef2f09f5f287d9fe845acf47ce83523216fb))
+
 ## [1.9.4](https://github.com/dword-design/base-config-node/compare/v1.9.3...v1.9.4) (2021-03-20)
 
 
