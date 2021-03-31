@@ -125,6 +125,7 @@ export default {
         },
       })
       await execa.command('base prepare')
+
       const output = await execa.command('base prepublishOnly', { all: true })
       expect(output.all).toMatch(
         new RegExp(endent`
