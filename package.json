@@ -27,7 +27,7 @@
     "chokidar": "^3.4.0",
     "debounce": "^1.2.0",
     "delete-empty": "^3.0.0",
-    "depcheck-package-name": "^1.0.0",
+    "depcheck-package-name": "^1.0.5",
     "eslint": "~7.24.0",
     "execa": "^5.0.0",
     "fs-extra": "^9.0.0",
