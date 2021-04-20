@@ -1,7 +1,7 @@
 {
   "name": "@dword-design/base-config-node",
   "version": "1.9.10",
-  "description": "",
+  "description": null,
   "repository": "dword-design/base-config-node",
   "funding": "https://www.buymeacoffee.com/dword",
   "license": "MIT",
@@ -41,5 +41,7 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "homepage": null,
+  "keywords": []
 }
