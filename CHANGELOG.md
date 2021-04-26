@@ -1,3 +1,10 @@
+## [1.9.14](https://github.com/dword-design/base-config-node/compare/v1.9.13...v1.9.14) (2021-04-26)
+
+
+### Bug Fixes
+
+* update dependency with-local-tmp-dir to v3 ([#68](https://github.com/dword-design/base-config-node/issues/68)) ([0fa00a0](https://github.com/dword-design/base-config-node/commit/0fa00a0a1159b1860f59405e677396418b4abae4))
+
 ## [1.9.13](https://github.com/dword-design/base-config-node/compare/v1.9.12...v1.9.13) (2021-04-26)
 
 
