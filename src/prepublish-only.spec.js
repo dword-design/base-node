@@ -1,10 +1,12 @@
-import { endent } from '@dword-design/functions'
+import { endent, property } from '@dword-design/functions'
 import execa from 'execa'
-import { exists } from 'fs-extra'
+import { exists, readFile } from 'fs-extra'
 import globby from 'globby'
 import outputFiles from 'output-files'
 import P from 'path'
 import withLocalTmpDir from 'with-local-tmp-dir'
+
+import self from './prepublish-only'
 
 export default {
   'build errors': () =>
@@ -22,14 +24,66 @@ export default {
         'src/index.js': 'foo bar',
       })
       await execa.command('base prepare')
-      let all
-      try {
-        await execa.command('base prepublishOnly', { all: true })
-      } catch (error) {
-        all = error.all
-      }
-      expect(all).toMatch(
+      await expect(self()).rejects.toThrow(
         `${P.join('src', 'index.js')}: Missing semicolon (1:3)`
+      )
+    }),
+  'eslint plugin next to eslint config': () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        node_modules: {
+          '@dword-design/eslint-config': {
+            'index.js': endent`
+              module.exports = {
+                plugins: ['foo'],
+              }
+
+            `,
+            'node_modules/eslint-plugin-foo/index.js': '',
+          },
+          'base-config-self/index.js':
+            "module.exports = require('../../../src')",
+          'eslint-plugin-foo/index.js': 'foo bar',
+        },
+        'package.json': JSON.stringify(
+          {
+            baseConfig: 'self',
+          },
+          undefined,
+          2
+        ),
+        'src/index.js': '',
+      })
+      await execa.command('base prepare')
+      await self({
+        resolvePluginsRelativeTo: P.join(
+          'node_modules',
+          '@dword-design',
+          'eslint-config'
+        ),
+      })
+    }),
+  fixable: () =>
+    withLocalTmpDir(async () => {
+      await outputFiles({
+        'node_modules/base-config-self/index.js':
+          "module.exports = require('../../../src')",
+        'package.json': JSON.stringify(
+          {
+            baseConfig: 'self',
+          },
+          undefined,
+          2
+        ),
+        'src/index.js': "console.log('foo');",
+      })
+      await execa.command('base prepare')
+      await self()
+      expect(await readFile(P.join('src', 'index.js'), 'utf8')).toEqual(
+        endent`
+          console.log('foo')
+
+        `
       )
     }),
   'linting errors': () =>
@@ -47,13 +101,9 @@ export default {
         'src/index.js': 'var foo = 2',
       })
       await execa.command('base prepare')
-      let all
-      try {
-        await execa.command('base prepublishOnly', { all: true })
-      } catch (error) {
-        all = error.all
-      }
-      expect(all).toMatch("'foo' is assigned a value but never used")
+      await expect(self()).rejects.toThrow(
+        "'foo' is assigned a value but never used"
+      )
       expect(await exists('dist')).toBeFalsy()
     }),
   'only copied files': () =>
@@ -73,7 +123,7 @@ export default {
         },
       })
       await execa.command('base prepare')
-      await execa.command('base prepublishOnly', { all: true })
+      await self()
       expect(
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['test.txt'])
@@ -125,9 +175,7 @@ export default {
         },
       })
       await execa.command('base prepare')
-
-      const output = await execa.command('base prepublishOnly', { all: true })
-      expect(output.all).toMatch(
+      expect(self() |> await |> property('all')).toMatch(
         new RegExp(endent`
         ^src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
         Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
