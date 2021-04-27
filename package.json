@@ -27,11 +27,11 @@
     "chokidar": "^3.4.0",
     "debounce": "^1.2.0",
     "delete-empty": "^3.0.0",
-    "depcheck-package-name": "^1.0.0",
     "eslint": "~7.25.0",
     "execa": "^5.0.0",
     "fs-extra": "^9.0.0",
-    "micromatch": "^4.0.2"
+    "micromatch": "^4.0.2",
+    "std-env": "^2.3.0"
   },
   "devDependencies": {
     "@dword-design/base": "^7.0.0",

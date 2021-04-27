@@ -1,13 +1,40 @@
+import { property } from '@dword-design/functions'
 import deleteEmpty from 'delete-empty'
 import execa from 'execa'
 import { copy, remove } from 'fs-extra'
 import micromatch from 'micromatch'
 import P from 'path'
-
-import lint from './lint'
+import stdEnv from 'std-env'
 
 export default async options => {
-  await lint()
+  options = {
+    log: !stdEnv.test,
+    resolvePluginsRelativeTo: require.resolve('@dword-design/eslint-config'),
+    ...options,
+  }
+
+  const output = { all: '' }
+  try {
+    output.all +=
+      execa(
+        'eslint',
+        [
+          '--fix',
+          '--ext',
+          '.js,.json',
+          '--ignore-path',
+          '.gitignore',
+          '--resolve-plugins-relative-to',
+          options.resolvePluginsRelativeTo,
+          '.',
+        ],
+        options.log ? { stdio: 'inherit' } : { all: true }
+      )
+      |> await
+      |> property('all')
+  } catch (error) {
+    throw new Error(error.all)
+  }
   await remove('dist')
   // https://github.com/babel/babel/issues/11394
   await copy('src', 'dist', {
@@ -19,9 +46,18 @@ export default async options => {
       ]),
   })
   await deleteEmpty(P.resolve('dist'))
-  await execa(
-    'babel',
-    ['--out-dir', 'dist', '--ignore', '**/*.spec.js', '--verbose', 'src'],
-    { stdio: options.log === false ? 'pipe' : 'inherit' }
-  )
+  try {
+    output.all +=
+      execa(
+        'babel',
+        ['--out-dir', 'dist', '--ignore', '**/*.spec.js', '--verbose', 'src'],
+        options.log ? { stdio: 'inherit' } : { all: true }
+      )
+      |> await
+      |> property('all')
+  } catch (error) {
+    throw new Error(error.all)
+  }
+
+  return output
 }
