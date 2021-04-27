@@ -46,18 +46,14 @@ export default async options => {
       ]),
   })
   await deleteEmpty(P.resolve('dist'))
-  try {
-    output.all +=
-      execa(
-        'babel',
-        ['--out-dir', 'dist', '--ignore', '**/*.spec.js', '--verbose', 'src'],
-        options.log ? { stdio: 'inherit' } : { all: true }
-      )
-      |> await
-      |> property('all')
-  } catch (error) {
-    throw new Error(error.all)
-  }
+  output.all +=
+    execa(
+      'babel',
+      ['--out-dir', 'dist', '--ignore', '**/*.spec.js', '--verbose', 'src'],
+      options.log ? { stdio: 'inherit' } : { all: true }
+    )
+    |> await
+    |> property('all')
 
   return output
 }
