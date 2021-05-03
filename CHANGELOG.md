@@ -1,3 +1,10 @@
+## [1.9.17](https://github.com/dword-design/base-config-node/compare/v1.9.16...v1.9.17) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#76](https://github.com/dword-design/base-config-node/issues/76)) ([eeb4345](https://github.com/dword-design/base-config-node/commit/eeb4345259aaed6e657071dbff13a9a7bc46e404))
+
 ## [1.9.16](https://github.com/dword-design/base-config-node/compare/v1.9.15...v1.9.16) (2021-04-28)
 
 
