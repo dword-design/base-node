@@ -1,3 +1,12 @@
+## [1.9.18](https://github.com/dword-design/base-config-node/compare/v1.9.17...v1.9.18) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4 ([#78](https://github.com/dword-design/base-config-node/issues/78)) ([0da207f](https://github.com/dword-design/base-config-node/commit/0da207fd9940b9842c94c13f2fb207f70fdbe79a))
+* update dependency fs-extra to v10 ([#79](https://github.com/dword-design/base-config-node/issues/79)) ([acb7903](https://github.com/dword-design/base-config-node/commit/acb7903490d491c6470d5f7f688fce52465b58e3))
+* update dependency with-local-tmp-dir to v4 ([#81](https://github.com/dword-design/base-config-node/issues/81)) ([0dddbae](https://github.com/dword-design/base-config-node/commit/0dddbaecd43e4a385d0c2fc2543eab00b7e1cd7f))
+
 ## [1.9.17](https://github.com/dword-design/base-config-node/compare/v1.9.16...v1.9.17) (2021-05-03)
 
 
