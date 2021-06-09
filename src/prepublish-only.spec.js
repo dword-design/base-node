@@ -25,7 +25,7 @@ export default {
       })
       await execa.command('base prepare')
       await expect(self()).rejects.toThrow(
-        `${P.join('src', 'index.js')}: Missing semicolon. (1:3)`
+        'Parsing error: Missing semicolon. (1:3)'
       )
     }),
   'eslint plugin next to eslint config': () =>
