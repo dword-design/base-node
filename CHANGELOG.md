@@ -1,3 +1,10 @@
+## [1.9.27](https://github.com/dword-design/base-config-node/compare/v1.9.26...v1.9.27) (2021-07-06)
+
+
+### Bug Fixes
+
+* update config files ([430376f](https://github.com/dword-design/base-config-node/commit/430376f7b663c14afdd9705b6ce838482ed8756e))
+
 ## [1.9.26](https://github.com/dword-design/base-config-node/compare/v1.9.25...v1.9.26) (2021-07-05)
 
 
