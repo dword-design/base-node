@@ -1,3 +1,10 @@
+## [1.9.28](https://github.com/dword-design/base-config-node/compare/v1.9.27...v1.9.28) (2021-07-17)
+
+
+### Bug Fixes
+
+* update dependency eslint to ~7.31.0 ([074e01d](https://github.com/dword-design/base-config-node/commit/074e01d94c9ea72bc91ce947e22a6138361e9be0))
+
 ## [1.9.27](https://github.com/dword-design/base-config-node/compare/v1.9.26...v1.9.27) (2021-07-06)
 
 
