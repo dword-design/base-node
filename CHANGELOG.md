@@ -1,3 +1,10 @@
+## [1.9.31](https://github.com/dword-design/base-config-node/compare/v1.9.30...v1.9.31) (2022-07-07)
+
+
+### Bug Fixes
+
+* add depcheck sass parser ([46ad1ba](https://github.com/dword-design/base-config-node/commit/46ad1bad91d97fc992463dbcaf89b77ccefc8234))
+
 ## [1.9.30](https://github.com/dword-design/base-config-node/compare/v1.9.29...v1.9.30) (2021-07-31)
 
 
