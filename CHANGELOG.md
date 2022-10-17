@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/dword-design/base-config-node/compare/v1.9.31...v1.10.0) (2022-10-17)
+
+
+### Features
+
+* add esm support ([8910aab](https://github.com/dword-design/base-config-node/commit/8910aab7dc907aad2f0de8e5b8d6ee89fcd6aad2))
+
 ## [1.9.31](https://github.com/dword-design/base-config-node/compare/v1.9.30...v1.9.31) (2022-07-07)
 
 
