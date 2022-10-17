@@ -1,7 +1,10 @@
 import depcheckParserSass from '@dword-design/depcheck-parser-sass'
+import loadPkg from 'load-pkg'
 
 import dev from './dev'
 import prepublishOnly from './prepublish-only'
+
+const packageConfig = loadPkg.sync() || {}
 
 export default {
   allowedMatches: ['src'],
@@ -17,8 +20,9 @@ export default {
   editorIgnore: ['dist'],
   gitignore: ['/dist'],
   npmPublish: true,
-  packageConfig: {
-    main: 'dist/index.js',
-  },
+  packageConfig:
+    packageConfig.type === 'module'
+      ? { exports: './dist/index.js' }
+      : { main: 'dist/index.js' },
   useJobMatrix: true,
 }

@@ -30,6 +30,7 @@
     "eslint": "~7.32.0",
     "execa": "^5.0.0",
     "fs-extra": "^10.0.0",
+    "load-pkg": "^4.0.0",
     "micromatch": "^4.0.2",
     "std-env": "^2.3.0"
   },
