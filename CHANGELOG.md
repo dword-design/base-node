@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/dword-design/base-config-node/compare/v1.10.0...v1.10.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* always output main ([162ed00](https://github.com/dword-design/base-config-node/commit/162ed008ccd71e34174593092b0e21903ccfd21e))
+
 # [1.10.0](https://github.com/dword-design/base-config-node/compare/v1.9.31...v1.10.0) (2022-10-17)
 
 
