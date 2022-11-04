@@ -20,9 +20,9 @@ export default {
   editorIgnore: ['dist'],
   gitignore: ['/dist'],
   npmPublish: true,
-  packageConfig:
-    packageConfig.type === 'module'
-      ? { exports: './dist/index.js' }
-      : { main: 'dist/index.js' },
+  packageConfig: {
+    main: 'dist/index.js',
+    ...(packageConfig.type === 'module' && { exports: './dist/index.js' }),
+  },
   useJobMatrix: true,
 }
