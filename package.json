@@ -28,7 +28,7 @@
     "debounce": "^1.2.0",
     "delete-empty": "^3.0.0",
     "eslint": "~7.32.0",
-    "execa": "^5.0.0",
+    "execa": "^6.0.0",
     "fs-extra": "^10.0.0",
     "load-pkg": "^4.0.0",
     "micromatch": "^4.0.2",
