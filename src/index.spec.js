@@ -1,7 +1,7 @@
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
-import execa from 'execa'
 import outputFiles from 'output-files'
+import stealthyRequire from 'stealthy-require-no-leak'
 
 export default tester(
   {
@@ -24,8 +24,12 @@ export default tester(
         ),
         'src/style.scss': "@import '~foo';",
       })
-      await execa.command('base prepare')
-      await execa.command('base test')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
+      await base.test()
     },
   },
   [testerPluginTmpDir()]

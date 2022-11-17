@@ -1,11 +1,11 @@
 import { endent, property } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
-import execa from 'execa'
 import { exists, readFile } from 'fs-extra'
 import globby from 'globby'
 import outputFiles from 'output-files'
 import P from 'path'
+import stealthyRequire from 'stealthy-require-no-leak'
 
 import self from './prepublish-only'
 
@@ -24,7 +24,11 @@ export default tester(
         ),
         'src/index.js': 'foo bar',
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       await expect(self()).rejects.toThrow(
         'Parsing error: Missing semicolon. (1:3)'
       )
@@ -54,7 +58,11 @@ export default tester(
         ),
         'src/index.js': '',
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       await self({
         resolvePluginsRelativeTo: P.join(
           'node_modules',
@@ -76,7 +84,11 @@ export default tester(
         ),
         'src/index.js': "console.log('foo');",
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       await self()
       expect(await readFile(P.join('src', 'index.js'), 'utf8')).toEqual(
         endent`
@@ -98,7 +110,11 @@ export default tester(
         ),
         'src/index.js': 'var foo = 2',
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       await expect(self()).rejects.toThrow(
         "'foo' is assigned a value but never used"
       )
@@ -119,7 +135,11 @@ export default tester(
           'test.txt': 'foo',
         },
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       await self()
       expect(
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
@@ -145,8 +165,12 @@ export default tester(
           'index.js': 'export default 1',
         },
       })
-      await execa.command('base prepare')
-      await execa.command('base prepublishOnly')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
+      await base.prepublishOnly()
       expect(
         await globby('**', { cwd: 'dist', dot: true, onlyFiles: false })
       ).toEqual(['index.js'])
@@ -169,7 +193,11 @@ export default tester(
           'test.txt': 'foo',
         },
       })
-      await execa.command('base prepare')
+
+      const base = stealthyRequire(require.cache, () =>
+        require('@dword-design/base')
+      )
+      await base.prepare()
       expect(self() |> await |> property('all')).toMatch(
         new RegExp(endent`
       ^src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js

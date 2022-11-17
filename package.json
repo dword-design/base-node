@@ -21,7 +21,7 @@
   "dependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
-    "@dword-design/depcheck-parser-sass": "^2.0.13",
+    "@dword-design/depcheck-parser-sass": "^3.0.0",
     "@dword-design/eslint-config": "^2.0.0",
     "@dword-design/functions": "^4.0.0",
     "chokidar": "^3.4.0",
@@ -35,14 +35,15 @@
     "std-env": "^2.3.0"
   },
   "devDependencies": {
-    "@dword-design/base": "^8.0.0",
+    "@dword-design/base": "^9.0.0",
     "@dword-design/tester": "^2.0.11",
     "@dword-design/tester-plugin-tmp-dir": "^2.1.5",
     "globby": "^11.0.1",
-    "output-files": "^2.0.0"
+    "output-files": "^2.0.0",
+    "stealthy-require-no-leak": "^1.0.7"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
