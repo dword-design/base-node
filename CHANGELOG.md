@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/dword-design/base-config-node/compare/v1.10.2...v1.10.3) (2022-11-17)
+
+
+### Bug Fixes
+
+* trigger release ([ca49639](https://github.com/dword-design/base-config-node/commit/ca4963941042e099ce2f77950cddb0f6da215f53))
+
 ## [1.10.2](https://github.com/dword-design/base-config-node/compare/v1.10.1...v1.10.2) (2022-11-17)
 
 
