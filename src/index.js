@@ -1,8 +1,8 @@
 import depcheckParserSass from '@dword-design/depcheck-parser-sass'
 import loadPkg from 'load-pkg'
 
-import dev from './dev'
-import prepublishOnly from './prepublish-only'
+import dev from './dev.js'
+import prepublishOnly from './prepublish-only.js'
 
 const packageConfig = loadPkg.sync() || {}
 

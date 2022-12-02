@@ -1,33 +1,27 @@
+import { Base } from '@dword-design/base'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import outputFiles from 'output-files'
-import stealthyRequire from 'stealthy-require-no-leak'
+
+import self from './index.js'
 
 export default tester(
   {
     'sass library': async () => {
       await outputFiles({
-        node_modules: {
-          'base-config-self/index.js':
-            "module.exports = require('../../../src')",
-          'foo/index.scss': '',
+        'node_modules/foo': {
+          'index.scss': '',
+          'package.json': JSON.stringify({ main: './index.scss', name: 'foo' }),
         },
-        'package.json': JSON.stringify(
-          {
-            baseConfig: 'self',
-            dependencies: {
-              foo: '^1.0.0',
-            },
+        'package.json': JSON.stringify({
+          dependencies: {
+            foo: '^1.0.0',
           },
-          undefined,
-          2
-        ),
+        }),
         'src/style.scss': "@import '~foo';",
       })
 
-      const base = stealthyRequire(require.cache, () =>
-        require('@dword-design/base')
-      )
+      const base = new Base(self)
       await base.prepare()
       await base.test()
     },

@@ -1,15 +1,17 @@
 import { property } from '@dword-design/functions'
 import deleteEmpty from 'delete-empty'
-import execa from 'execa'
-import { copy, remove } from 'fs-extra'
+import { execa } from 'execa'
+import fs from 'fs-extra'
 import micromatch from 'micromatch'
+import { createRequire } from 'module'
 import P from 'path'
-import stdEnv from 'std-env'
+
+const _require = createRequire(import.meta.url)
 
 export default async options => {
   options = {
-    log: !stdEnv.test,
-    resolvePluginsRelativeTo: require.resolve('@dword-design/eslint-config'),
+    log: process.env.NODE_ENV !== 'test',
+    resolvePluginsRelativeTo: _require.resolve('@dword-design/eslint-config'),
     ...options,
   }
 
@@ -35,9 +37,9 @@ export default async options => {
   } catch (error) {
     throw new Error(error.all)
   }
-  await remove('dist')
+  await fs.remove('dist')
   // https://github.com/babel/babel/issues/11394
-  await copy('src', 'dist', {
+  await fs.copy('src', 'dist', {
     filter: path =>
       !micromatch.isMatch(path, [
         '**/*.js',
