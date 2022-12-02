@@ -30,7 +30,7 @@
     "delete-empty": "^3.0.0",
     "eslint": "^8.28.0",
     "execa": "^6.1.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^11.0.0",
     "load-pkg": "^4.0.0",
     "micromatch": "^4.0.2"
   },
