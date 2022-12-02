@@ -1,7 +1,7 @@
 import chokidar from 'chokidar'
 import debounce from 'debounce'
 
-import prepublishOnly from './prepublish-only'
+import prepublishOnly from './prepublish-only.js'
 
 export default options =>
   chokidar.watch('src').on(
