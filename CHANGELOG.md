@@ -1,3 +1,10 @@
+## [1.10.5](https://github.com/dword-design/base-config-node/compare/v1.10.4...v1.10.5) (2022-12-03)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v11 ([#155](https://github.com/dword-design/base-config-node/issues/155)) ([70870d1](https://github.com/dword-design/base-config-node/commit/70870d1b70cb75fe41fb09f4ea9a2ef8e3419c5a))
+
 ## [1.10.4](https://github.com/dword-design/base-config-node/compare/v1.10.3...v1.10.4) (2022-12-02)
 
 
