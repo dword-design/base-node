@@ -1,3 +1,10 @@
+## [1.10.6](https://github.com/dword-design/base-config-node/compare/v1.10.5...v1.10.6) (2023-02-14)
+
+
+### Bug Fixes
+
+* update dependency execa to v7 ([#162](https://github.com/dword-design/base-config-node/issues/162)) ([53a6b4d](https://github.com/dword-design/base-config-node/commit/53a6b4d1993e1f104cef73e01c977386df494143))
+
 ## [1.10.5](https://github.com/dword-design/base-config-node/compare/v1.10.4...v1.10.5) (2022-12-03)
 
 
