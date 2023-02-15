@@ -17,6 +17,7 @@ export default tester(
           dependencies: {
             foo: '^1.0.0',
           },
+          type: 'module',
         }),
         'src/style.scss': "@import '~foo';",
       })
