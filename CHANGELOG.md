@@ -1,3 +1,10 @@
+## [1.10.11](https://github.com/dword-design/base-config-node/compare/v1.10.10...v1.10.11) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.12 ([69a6afa](https://github.com/dword-design/base-config-node/commit/69a6afa1870dcd9d25fdc28d1e19a4278d7f9142))
+
 ## [1.10.10](https://github.com/dword-design/base-config-node/compare/v1.10.9...v1.10.10) (2023-03-16)
 
 
