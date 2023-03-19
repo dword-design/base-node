@@ -1,3 +1,10 @@
+## [1.10.24](https://github.com/dword-design/base-config-node/compare/v1.10.23...v1.10.24) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.18 ([44b31eb](https://github.com/dword-design/base-config-node/commit/44b31ebbc098ceb2ad1492e2d5877e725e23dfa4))
+
 ## [1.10.23](https://github.com/dword-design/base-config-node/compare/v1.10.22...v1.10.23) (2023-03-19)
 
 
