@@ -1,3 +1,11 @@
+## [1.10.25](https://github.com/dword-design/base-config-node/compare/v1.10.24...v1.10.25) (2023-03-20)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.18 ([a61dd62](https://github.com/dword-design/base-config-node/commit/a61dd62e93a632e09b5bf0f794b7255c62b8ce45))
+* update dependency fs-extra to v11.1.1 ([98f5516](https://github.com/dword-design/base-config-node/commit/98f5516c43883f4b8116970334458b97f2b81c1d))
+
 ## [1.10.24](https://github.com/dword-design/base-config-node/compare/v1.10.23...v1.10.24) (2023-03-19)
 
 
