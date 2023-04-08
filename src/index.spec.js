@@ -3,8 +3,6 @@ import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import outputFiles from 'output-files'
 
-import self from './index.js'
-
 export default tester(
   {
     'sass library': async () => {
@@ -22,7 +20,7 @@ export default tester(
         'src/style.scss': "@import '~foo';",
       })
 
-      const base = new Base(self)
+      const base = new Base({ name: '../src/index.js' })
       await base.prepare()
       await base.test()
     },

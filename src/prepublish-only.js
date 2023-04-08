@@ -1,4 +1,4 @@
-import { property } from '@dword-design/functions'
+import { endent, property } from '@dword-design/functions'
 import deleteEmpty from 'delete-empty'
 import { execa } from 'execa'
 import fs from 'fs-extra'
@@ -8,7 +8,7 @@ import P from 'path'
 
 const _require = createRequire(import.meta.url)
 
-export default async options => {
+export default async function (options) {
   options = {
     log: process.env.NODE_ENV !== 'test',
     resolvePluginsRelativeTo: _require.resolve('@dword-design/eslint-config'),
@@ -48,6 +48,17 @@ export default async options => {
       ]),
   })
   await deleteEmpty(P.resolve('dist'))
+  if (this.config.cjsFallback) {
+    await fs.outputFile(
+      P.join('dist', 'cjs-fallback.cjs'),
+      endent`
+        const jiti = require('jiti')(__filename, { interopDefault: true })
+        const api = jiti('.')
+
+        module.exports = api
+      `,
+    )
+  }
   output.all +=
     execa(
       'babel',

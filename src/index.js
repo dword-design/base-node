@@ -6,7 +6,7 @@ import prepublishOnly from './prepublish-only.js'
 
 const packageConfig = loadPkg.sync() || {}
 
-export default {
+export default config => ({
   allowedMatches: ['src'],
   commands: {
     dev,
@@ -21,8 +21,8 @@ export default {
   gitignore: ['/dist'],
   npmPublish: true,
   packageConfig: {
-    main: 'dist/index.js',
+    main: `dist/${config.cjsFallback ? 'cjs-fallback.cjs' : 'index.js'}`,
     ...(packageConfig.type === 'module' && { exports: './dist/index.js' }),
   },
   useJobMatrix: true,
-}
+})

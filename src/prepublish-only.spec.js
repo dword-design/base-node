@@ -2,22 +2,41 @@ import { Base } from '@dword-design/base'
 import { endent, property } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
+import { execaCommand } from 'execa'
 import fs from 'fs-extra'
 import { globby } from 'globby'
 import outputFiles from 'output-files'
 import P from 'path'
 
-import config from './index.js'
 import self from './prepublish-only.js'
 
 export default tester(
   {
     'build errors': async () => {
       await fs.outputFile(P.join('src', 'index.js'), 'foo bar')
-      await new Base(config).prepare()
-      await expect(self()).rejects.toThrow(
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await expect(base.run('prepublishOnly')).rejects.toThrow(
         'Parsing error: Missing semicolon. (1:3)',
       )
+    },
+    cjsFallback: async () => {
+      await outputFiles({
+        'cjs-file.cjs': "console.log(require('.'))",
+        'package.json': JSON.stringify({ type: 'module' }),
+        src: {
+          'index.js': "export default 'foo'",
+        },
+      })
+
+      const base = new Base({
+        cjsFallback: true,
+        name: '../src/index.js',
+      })
+      await base.prepare()
+      await base.run('prepublishOnly')
+      expect((await execaCommand('node cjs-file.cjs')).stdout).toEqual('foo')
     },
     'eslint plugin next to eslint config': async () => {
       await outputFiles({
@@ -35,8 +54,10 @@ export default tester(
         },
         'src/index.js': '',
       })
-      await new Base(config).prepare()
-      await self({
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await base.run('prepublishOnly', {
         resolvePluginsRelativeTo: P.join(
           'node_modules',
           '@dword-design',
@@ -46,8 +67,10 @@ export default tester(
     },
     fixable: async () => {
       await fs.outputFile(P.join('src', 'index.js'), "console.log('foo');")
-      await new Base(config).prepare()
-      await self()
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await base.run('prepublishOnly')
       expect(await fs.readFile(P.join('src', 'index.js'), 'utf8')).toEqual(
         endent`
           console.log('foo')
@@ -57,7 +80,7 @@ export default tester(
     },
     'linting errors': async () => {
       await fs.outputFile(P.join('src', 'index.js'), 'var foo = 2')
-      await new Base(config).prepare()
+      await new Base({ name: '../src/index.js' }).prepare()
       await expect(self()).rejects.toThrow(
         "'foo' is assigned a value but never used",
       )
@@ -65,8 +88,10 @@ export default tester(
     },
     'only copied files': async () => {
       await fs.outputFile(P.join('src', 'test.txt'), 'foo')
-      await new Base(config).prepare()
-      await self()
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await base.run('prepublishOnly')
       expect(
         await globby('*', { cwd: 'dist', dot: true, onlyFiles: false }),
       ).toEqual(['test.txt'])
@@ -82,8 +107,10 @@ export default tester(
           'index.js': 'export default 1',
         },
       })
-      await new Base(config).prepare()
-      await self()
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await base.run('prepublishOnly')
       expect(
         await globby('**', { cwd: 'dist', dot: true, onlyFiles: false }),
       ).toEqual(['index.js'])
@@ -97,8 +124,10 @@ export default tester(
           'test.txt': 'foo',
         },
       })
-      await new Base(config).prepare()
-      expect(self() |> await |> property('all')).toMatch(
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      expect(base.run('prepublishOnly') |> await |> property('all')).toMatch(
         new RegExp(endent`
           src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
           Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
