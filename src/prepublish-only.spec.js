@@ -65,6 +65,19 @@ export default tester(
         ),
       })
     },
+    'eslint-config project': async () => {
+      await outputFiles({
+        'package.json': JSON.stringify({
+          name: '@dword-design/eslint-config',
+          type: 'module',
+        }),
+        'src/index.js': '',
+      })
+
+      const base = new Base({ name: '../src/index.js' })
+      await base.prepare()
+      await base.run('prepublishOnly')
+    },
     fixable: async () => {
       await fs.outputFile(P.join('src', 'index.js'), "console.log('foo');")
 
