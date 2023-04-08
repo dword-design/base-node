@@ -22,7 +22,10 @@ export default config => ({
   npmPublish: true,
   packageConfig: {
     main: `dist/${config.cjsFallback ? 'cjs-fallback.cjs' : 'index.js'}`,
-    ...(packageConfig.type === 'module' && { exports: './dist/index.js' }),
+    ...(packageConfig.type === 'module' &&
+      !config.cjsFallback && {
+        exports: './dist/index.js',
+      }),
   },
   useJobMatrix: true,
 })

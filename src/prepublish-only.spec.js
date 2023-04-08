@@ -74,7 +74,7 @@ export default tester(
         'src/index.js': '',
       })
 
-      const base = new Base({ name: '../src/index.js' })
+      const base = new Base({ cjsFallback: true, name: '../src/index.js' })
       await base.prepare()
       await base.run('prepublishOnly')
     },
