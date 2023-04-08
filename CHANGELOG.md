@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/dword-design/base-config-node/compare/v1.11.1...v1.11.2) (2023-04-08)
+
+
+### Bug Fixes
+
+* foo ([83bfacc](https://github.com/dword-design/base-config-node/commit/83bfacc4234da3d9d8007fd850f5d502dbbdb2d8))
+
 ## [1.11.1](https://github.com/dword-design/base-config-node/compare/v1.11.0...v1.11.1) (2023-04-08)
 
 
