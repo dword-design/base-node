@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/dword-design/base-config-node/compare/v1.10.30...v1.11.0) (2023-04-08)
+
+
+### Features
+
+* cjs fallback ([#190](https://github.com/dword-design/base-config-node/issues/190)) ([7d00c14](https://github.com/dword-design/base-config-node/commit/7d00c149e9702d1b6ffd95a36c7ec93cba8e55d2))
+
 ## [1.10.30](https://github.com/dword-design/base-config-node/compare/v1.10.29...v1.10.30) (2023-04-08)
 
 
