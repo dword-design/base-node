@@ -27,5 +27,5 @@ export default tester(
       await base.test()
     },
   },
-  [testerPluginTmpDir()]
+  [testerPluginTmpDir()],
 )

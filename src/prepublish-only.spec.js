@@ -16,7 +16,7 @@ export default tester(
       await fs.outputFile(P.join('src', 'index.js'), 'foo bar')
       await new Base(config).prepare()
       await expect(self()).rejects.toThrow(
-        'Parsing error: Missing semicolon. (1:3)'
+        'Parsing error: Missing semicolon. (1:3)',
       )
     },
     'eslint plugin next to eslint config': async () => {
@@ -24,11 +24,11 @@ export default tester(
         node_modules: {
           '@dword-design/eslint-config': {
             'index.js': endent`
-            module.exports = {
-              plugins: ['foo'],
-            }
+              module.exports = {
+                plugins: ['foo'],
+              }
 
-          `,
+            `,
             'node_modules/eslint-plugin-foo/index.js': '',
           },
           'eslint-plugin-foo/index.js': 'foo bar',
@@ -40,7 +40,7 @@ export default tester(
         resolvePluginsRelativeTo: P.join(
           'node_modules',
           '@dword-design',
-          'eslint-config'
+          'eslint-config',
         ),
       })
     },
@@ -50,16 +50,16 @@ export default tester(
       await self()
       expect(await fs.readFile(P.join('src', 'index.js'), 'utf8')).toEqual(
         endent`
-        console.log('foo')
+          console.log('foo')
 
-      `
+        `,
       )
     },
     'linting errors': async () => {
       await fs.outputFile(P.join('src', 'index.js'), 'var foo = 2')
       await new Base(config).prepare()
       await expect(self()).rejects.toThrow(
-        "'foo' is assigned a value but never used"
+        "'foo' is assigned a value but never used",
       )
       expect(await fs.exists('dist')).toBeFalsy()
     },
@@ -68,7 +68,7 @@ export default tester(
       await new Base(config).prepare()
       await self()
       expect(
-        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
+        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false }),
       ).toEqual(['test.txt'])
     },
     snapshots: async () => {
@@ -85,7 +85,7 @@ export default tester(
       await new Base(config).prepare()
       await self()
       expect(
-        await globby('**', { cwd: 'dist', dot: true, onlyFiles: false })
+        await globby('**', { cwd: 'dist', dot: true, onlyFiles: false }),
       ).toEqual(['index.js'])
     },
     async valid() {
@@ -100,17 +100,17 @@ export default tester(
       await new Base(config).prepare()
       expect(self() |> await |> property('all')).toMatch(
         new RegExp(endent`
-      src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
-      Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
-    `)
+          src(\\\\|/)index\\.js -> dist(\\\\|/)index\\.js
+          Successfully compiled 1 file with Babel( \\(.*?\\))?\\.$
+        `),
       )
       expect(
-        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false })
+        await globby('*', { cwd: 'dist', dot: true, onlyFiles: false }),
       ).toEqual(['index.js', 'test.txt'])
       expect(
-        await fs.readFile(P.join('dist', 'index.js'), 'utf8')
+        await fs.readFile(P.join('dist', 'index.js'), 'utf8'),
       ).toMatchSnapshot(this)
     },
   },
-  [testerPluginTmpDir()]
+  [testerPluginTmpDir()],
 )
