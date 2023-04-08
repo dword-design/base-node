@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/dword-design/base-config-node/compare/v1.11.0...v1.11.1) (2023-04-08)
+
+
+### Bug Fixes
+
+* eslint config ([#191](https://github.com/dword-design/base-config-node/issues/191)) ([65f7d9d](https://github.com/dword-design/base-config-node/commit/65f7d9d7fa1570d478665a1e2ff91b9896cb4451))
+
 # [1.11.0](https://github.com/dword-design/base-config-node/compare/v1.10.30...v1.11.0) (2023-04-08)
 
 
