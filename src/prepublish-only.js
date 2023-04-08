@@ -30,7 +30,7 @@ export default async options => {
           options.resolvePluginsRelativeTo,
           '.',
         ],
-        options.log ? { stdio: 'inherit' } : { all: true }
+        options.log ? { stdio: 'inherit' } : { all: true },
       )
       |> await
       |> property('all')
@@ -52,7 +52,7 @@ export default async options => {
     execa(
       'babel',
       ['--out-dir', 'dist', '--ignore', '**/*.spec.js', '--verbose', 'src'],
-      options.log ? { stdio: 'inherit' } : { all: true }
+      options.log ? { stdio: 'inherit' } : { all: true },
     )
     |> await
     |> property('all')

@@ -12,5 +12,5 @@ export default options =>
       } catch (error) {
         console.log(error.message)
       }
-    }, 200)
+    }, 200),
   )
