@@ -1313,9 +1313,9 @@
     babel-plugin-add-module-exports "^1.0.2"
 
 "@dword-design/depcheck-parser-sass@^3.0.0":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dword-design/depcheck-parser-sass/-/depcheck-parser-sass-3.0.2.tgz#d49a7a9321866724b76f5c67f58cac21f606caa9"
-  integrity sha512-AaMA3eJdhzcxR9rS3gJV3V+LTfVe16GuSEKT0GSOmkd6vRUsZWEx0lTCODSuwS/1qK5v71+/mOGogDREkcQCgw==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@dword-design/depcheck-parser-sass/-/depcheck-parser-sass-3.0.3.tgz#af07d3b07d7a8d97316438ca2509794178369f5a"
+  integrity sha512-OG3Vo5YKguSx5K0JApM0Ca/4tDuwALp4mGS/n2eYOkBNTBzTfWparw/xSTNlzm9MIGAoyTFJ523wpARZK378yw==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     get-package-name "^2.0.0"
