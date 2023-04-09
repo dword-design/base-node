@@ -1,7 +1,10 @@
 import depcheckParserSass from '@dword-design/depcheck-parser-sass'
+import loadPkg from 'load-pkg'
 
 import dev from './dev.js'
 import prepublishOnly from './prepublish-only.js'
+
+const packageConfig = loadPkg.sync() || {}
 
 export default config => ({
   allowedMatches: ['src'],
@@ -19,9 +22,9 @@ export default config => ({
   npmPublish: true,
   packageConfig: {
     main: `dist/${config.cjsFallback ? 'cjs-fallback.cjs' : 'index.js'}`,
-    ...(config.packageConfig.type === 'module' &&
+    ...(packageConfig.type === 'module' &&
       !config.cjsFallback && {
-        exports: config.packageConfig.exports,//'./dist/index.js',
+        exports: packageConfig.exports,//'./dist/index.js',
       }),
   },
   useJobMatrix: true,
