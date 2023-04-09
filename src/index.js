@@ -24,7 +24,7 @@ export default config => ({
     main: `dist/${config.cjsFallback ? 'cjs-fallback.cjs' : 'index.js'}`,
     ...(packageConfig.type === 'module' &&
       !config.cjsFallback && {
-        exports: packageConfig.exports,//'./dist/index.js',
+        exports: packageConfig.exports, // './dist/index.js',
       }),
   },
   useJobMatrix: true,
