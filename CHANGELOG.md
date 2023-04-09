@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/dword-design/base-config-node/compare/v1.11.3...v1.11.4) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/depcheck-parser-sass to v3.0.3 ([04d039d](https://github.com/dword-design/base-config-node/commit/04d039d1d2838156ab85838c40288132d4f0d3b5))
+
 ## [1.11.3](https://github.com/dword-design/base-config-node/compare/v1.11.2...v1.11.3) (2023-04-09)
 
 
