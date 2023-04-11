@@ -1,3 +1,10 @@
+## [1.11.7](https://github.com/dword-design/base-config-node/compare/v1.11.6...v1.11.7) (2023-04-11)
+
+
+### Bug Fixes
+
+* update dependency globby to v13.1.4 ([fc151e0](https://github.com/dword-design/base-config-node/commit/fc151e00074cde1ab2d810a565b55a27dfafe8ea))
+
 ## [1.11.6](https://github.com/dword-design/base-config-node/compare/v1.11.5...v1.11.6) (2023-04-09)
 
 
