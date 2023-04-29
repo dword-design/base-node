@@ -1,3 +1,10 @@
+## [1.11.9](https://github.com/dword-design/base-config-node/compare/v1.11.8...v1.11.9) (2023-04-29)
+
+
+### Bug Fixes
+
+* update dependency @babel/core to v7.21.5 ([6cad5ee](https://github.com/dword-design/base-config-node/commit/6cad5eeed25780da79c521dfc4560378ab479f69))
+
 ## [1.11.8](https://github.com/dword-design/base-config-node/compare/v1.11.7...v1.11.8) (2023-04-22)
 
 
