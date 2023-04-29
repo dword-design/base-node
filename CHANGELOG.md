@@ -1,3 +1,10 @@
+## [1.11.10](https://github.com/dword-design/base-config-node/compare/v1.11.9...v1.11.10) (2023-04-29)
+
+
+### Bug Fixes
+
+* update dependency @babel/cli to v7.21.5 ([3e2b0ce](https://github.com/dword-design/base-config-node/commit/3e2b0ce43684518e84ed8b0c5060b36bff048908))
+
 ## [1.11.9](https://github.com/dword-design/base-config-node/compare/v1.11.8...v1.11.9) (2023-04-29)
 
 
