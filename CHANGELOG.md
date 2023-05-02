@@ -1,3 +1,10 @@
+## [1.11.11](https://github.com/dword-design/base-config-node/compare/v1.11.10...v1.11.11) (2023-05-02)
+
+
+### Bug Fixes
+
+* require to install jiti when using cjs-fallback ([#207](https://github.com/dword-design/base-config-node/issues/207)) ([377fccc](https://github.com/dword-design/base-config-node/commit/377fcccaf95b93f3e6033f2cfde8004b65e1da79))
+
 ## [1.11.10](https://github.com/dword-design/base-config-node/compare/v1.11.9...v1.11.10) (2023-04-29)
 
 
