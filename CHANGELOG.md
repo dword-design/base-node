@@ -1,3 +1,10 @@
+## [1.11.12](https://github.com/dword-design/base-config-node/compare/v1.11.11...v1.11.12) (2023-05-13)
+
+
+### Bug Fixes
+
+* set main and exports only if index.js exists ([5479660](https://github.com/dword-design/base-config-node/commit/5479660e1ba2941ebd4d002922685a731efe3971))
+
 ## [1.11.11](https://github.com/dword-design/base-config-node/compare/v1.11.10...v1.11.11) (2023-05-02)
 
 
