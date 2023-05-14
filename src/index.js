@@ -9,6 +9,7 @@ import prepublishOnly from './prepublish-only.js'
 
 export default config => {
   const packageConfig = loadPkg.sync() || {}
+
   const packageType = packageConfig.type || 'module'
 
   return {
