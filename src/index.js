@@ -9,6 +9,7 @@ import prepublishOnly from './prepublish-only.js'
 
 export default config => {
   const packageConfig = loadPkg.sync() || {}
+  const packageType = packageConfig.type || 'module'
 
   return {
     allowedMatches: ['src'],
@@ -29,7 +30,7 @@ export default config => {
     ...(fs.existsSync(P.join('src', 'index.js')) && {
       packageConfig: {
         main: `dist/${config.cjsFallback ? 'cjs-fallback.cjs' : 'index.js'}`,
-        ...(packageConfig.type === 'module' &&
+        ...(packageType === 'module' &&
           !config.cjsFallback && {
             exports: './dist/index.js',
           }),
