@@ -132,7 +132,7 @@ export default tester(
       await outputFiles({
         'dist/foo.js': '',
         src: {
-          'index.js': 'export default 1',
+          'index.js': 'export default 1 |> x => x * 2',
           'index.spec.js': '',
           'test.txt': 'foo',
         },
