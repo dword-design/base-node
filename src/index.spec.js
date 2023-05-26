@@ -15,9 +15,8 @@ export default tester(
           dependencies: {
             foo: '^1.0.0',
           },
-          type: 'module',
         }),
-        'src/style.scss': "@import '~foo';",
+        'src/style.scss': "@import 'foo';",
       })
 
       const base = new Base({ name: '../src/index.js' })

@@ -1,3 +1,4 @@
+import { keys, omit, property } from '@dword-design/functions'
 import fs from 'fs-extra'
 import P from 'path'
 
@@ -16,7 +17,9 @@ export default (config = {}) => {
     ...(packageConfig.type === 'module' &&
       !config.cjsFallback && {
         exports:
-          typeof packageConfig.exports === 'object'
+          typeof packageConfig.exports === 'object' &&
+          (packageConfig.exports |> omit(['.']) |> keys |> property('length')) >
+            0
             ? { ...packageConfig.exports, '.': './dist/index.js' }
             : './dist/index.js',
       }),
