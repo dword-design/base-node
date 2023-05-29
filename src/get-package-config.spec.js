@@ -31,25 +31,25 @@ export default tester(
     'multiple exports': async () => {
       await outputFiles({
         'package.json': JSON.stringify({
-          exports: { '.': './dist/index.js', foo: './dist/index.js' },
+          exports: { '.': './dist/index.js', './foo': './dist/index.js' },
         }),
         'src/foo.js': '',
         'src/index.js': '',
       })
       expect(self()).toEqual({
-        exports: { '.': './dist/index.js', foo: './dist/index.js' },
+        exports: { '.': './dist/index.js', './foo': './dist/index.js' },
         main: 'dist/index.js',
       })
     },
     'outdated object export': async () => {
       await outputFiles({
         'package.json': JSON.stringify({
-          exports: { '.': './dist/xyz.js', foo: './dist/foo.js' },
+          exports: { '.': './dist/xyz.js', './foo': './dist/foo.js' },
         }),
         'src/index.js': '',
       })
       expect(self()).toEqual({
-        exports: { '.': './dist/index.js', foo: './dist/foo.js' },
+        exports: { '.': './dist/index.js', './foo': './dist/foo.js' },
         main: 'dist/index.js',
       })
     },
@@ -79,13 +79,13 @@ export default tester(
     'single non-export in object': async () => {
       await outputFiles({
         'package.json': JSON.stringify({
-          exports: { foo: './dist/foo.js' },
+          exports: { './foo': './dist/foo.js' },
         }),
         'src/foo.js': '',
         'src/index.js': '',
       })
       expect(self()).toEqual({
-        exports: { '.': './dist/index.js', foo: './dist/foo.js' },
+        exports: { '.': './dist/index.js', './foo': './dist/foo.js' },
         main: 'dist/index.js',
       })
     },
