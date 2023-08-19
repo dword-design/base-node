@@ -30,7 +30,7 @@
     "debounce": "^1.2.0",
     "delete-empty": "^3.0.0",
     "eslint": "^8.28.0",
-    "execa": "^7.0.0",
+    "execa": "^8.0.0",
     "fs-extra": "^11.0.0",
     "micromatch": "^4.0.2"
   },
